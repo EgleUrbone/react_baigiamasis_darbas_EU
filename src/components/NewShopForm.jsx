@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 import { useAuth } from '../store/AuthProvider';
 import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
-import { toast } from 'react-hot-toast';
+import  toast  from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
 export default function NewShopForm() {
@@ -41,7 +41,9 @@ export default function NewShopForm() {
       const docRef = await addDoc(collection(db, 'shops'), newShop);
       console.log('Document written with ID: ', docRef.id);
       toast.success('Shop created!');
-      navigate('/shops');
+      setTimeout(() => {
+        navigate('/shops');
+      }, 2000);
     } catch (error) {
       console.log('error ===', error);
       toast.error('Something went wrong');

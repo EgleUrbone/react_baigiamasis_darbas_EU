@@ -4,12 +4,14 @@ import LoginPage from './pages/LoginPage';
 import { useAuth } from './store/AuthProvider';
 import ShopsPage from './pages/ShopsPage';
 import AddShopPage from './pages/AddShopPage';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   const ctx = useAuth();
 
   return (
     <div>
+      <Toaster/>
       <Header />
 
       <Routes>
