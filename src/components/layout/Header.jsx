@@ -10,9 +10,9 @@ export default function Header() {
     const auth = getAuth();
     signOut(auth)
       .then(() => {
-        toast.success('You have logged out')
+        toast.success('You have logged out');
         // Sign-out successful.
-        console.log('logged out')
+        console.log('logged out');
       })
       .catch((error) => {
         // An error happened.
@@ -21,46 +21,53 @@ export default function Header() {
   }
 
   return (
-    <header className='container flex justify-between items-center p-2 '>
-      <Link to={'/login'}>
-        <img className='w-14' src="/img/64063 [Converted]-02.png" alt="logo" />
-      </Link>
-      <hr />
-      <nav>
-        {!ctx.isUserLoggedIn && (
-          <NavLink
-            to={'/login'}
-            className={'text-lg px-3 py-2 hover:bg-slate-200'}
-          >
-            Login
-          </NavLink>
-        )}
-        {!ctx.isUserLoggedIn && (
-          <NavLink
-            to={'/register'}
-            className={'text-lg px-3 py-2 hover:bg-slate-200'}
-          >
-            Register
-          </NavLink>
-        )}
-        {ctx.isUserLoggedIn && (
-          <NavLink
-            onClick={logOutFB}
-            to={'/login'}
-            className={'text-lg px-3 py-2 hover:bg-slate-200'}
-          >
-            LogOut
-          </NavLink>
-        )}
-        {ctx.isUserLoggedIn && (
-          <NavLink
-            to={'/add-shop'}
-            className={'text-lg px-3 py-2 hover:bg-slate-200'}
-          >
-            Add Shop
-          </NavLink>
-        )}
-      </nav>
+    <header >
+      <div className='container flex justify-between items-center p-2 '>
+        <Link to={'/login'}>
+          <img
+            className='w-14'
+            src='/img/64063 [Converted]-02.png'
+            alt='logo'
+          />
+        </Link>
+
+        <nav>
+          {!ctx.isUserLoggedIn && (
+            <NavLink
+              to={'/login'}
+              className={'text-lg px-3 py-2 hover:bg-slate-200'}
+            >
+              Login
+            </NavLink>
+          )}
+          {!ctx.isUserLoggedIn && (
+            <NavLink
+              to={'/register'}
+              className={'text-lg px-3 py-2 hover:bg-slate-200'}
+            >
+              Register
+            </NavLink>
+          )}
+          {ctx.isUserLoggedIn && (
+            <NavLink
+              onClick={logOutFB}
+              to={'/login'}
+              className={'text-lg px-3 py-2 hover:bg-slate-200'}
+            >
+              LogOut
+            </NavLink>
+          )}
+          {ctx.isUserLoggedIn && (
+            <NavLink
+              to={'/add-shop'}
+              className={'text-lg px-3 py-2 hover:bg-slate-200'}
+            >
+              Add Shop
+            </NavLink>
+          )}
+        </nav>
+      </div>
+   
     </header>
   );
 }

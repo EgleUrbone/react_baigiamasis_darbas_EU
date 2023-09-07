@@ -33,6 +33,7 @@ export default function ShopsPage() {
 
   return (
     <div>
+      {shopsArr.length === 0 && <p>There are no shops to view..</p>}
       <ShopCardList list={shopsArr} />
     </div>
   );
