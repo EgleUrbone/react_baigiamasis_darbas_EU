@@ -21,8 +21,11 @@ export default function Header() {
   }
 
   return (
-    <header className='container flex justify-between items-center'>
-      <Link to={'/login'}>Logo</Link>
+    <header className='container flex justify-between items-center p-2 '>
+      <Link to={'/login'}>
+        <img className='w-14' src="/img/64063 [Converted]-02.png" alt="logo" />
+      </Link>
+      <hr />
       <nav>
         {!ctx.isUserLoggedIn && (
           <NavLink
