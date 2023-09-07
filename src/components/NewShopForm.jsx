@@ -4,9 +4,11 @@ import { useAuth } from '../store/AuthProvider';
 import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
 import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 export default function NewShopForm() {
   const ctx = useAuth();
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -38,71 +40,68 @@ export default function NewShopForm() {
     try {
       const docRef = await addDoc(collection(db, 'shops'), newShop);
       console.log('Document written with ID: ', docRef.id);
-      toast.success('Shop created!')
+      toast.success('Shop created!');
+      navigate('/shops');
     } catch (error) {
       console.log('error ===', error);
-      toast.error('Something went wrong')
+      toast.error('Something went wrong');
     }
   }
 
   return (
     <form onSubmit={formik.handleSubmit} className='flex flex-col '>
-    <input
-      onChange={formik.handleChange}
-      onBlur={formik.handleBlur}
-      value={formik.values.shopname}
-      id='shopname'
-      type='text'
-      placeholder='Your shop name'
-    />
-    {formik.errors.shopname && formik.touched.shopname && (
-      <p>{formik.errors.shopname}</p>
-    )}
-    <textarea
-      onChange={formik.handleChange}
-      onBlur={formik.handleBlur}
-      value={formik.values.description}
-      id='description'
-      type='text'
-      placeholder='Tell us about your shop'
-    />
-    {formik.errors.description && formik.touched.description && (
-      <p>{formik.errors.description}</p>
-    )}
-    <input
-      onChange={formik.handleChange}
-      onBlur={formik.handleBlur}
-      value={formik.values.town}
-      id='town'
-      type='text'
-      placeholder='Shop location - town'
-    />
-    {formik.errors.town && formik.touched.town && (
-      <p>{formik.errors.town}</p>
-    )}
-    <input
-      onChange={formik.handleChange}
-      onBlur={formik.handleBlur}
-      value={formik.values.year}
-      id='year'
-      type='number'
-      placeholder='Starting year'
-    />
-    {formik.errors.year && formik.touched.year && (
-      <p>{formik.errors.year}</p>
-    )}
-    <input
-      onChange={formik.handleChange}
-      onBlur={formik.handleBlur}
-      value={formik.values.image}
-      id='image'
-      type='text'
-      placeholder='Image URL'
-    />
-    {formik.errors.image && formik.touched.image && (
-      <p>{formik.errors.image}</p>
-    )}
-    <button type='submit'>Create Shop</button>
-  </form>
-  )
+      <input
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.shopname}
+        id='shopname'
+        type='text'
+        placeholder='Your shop name'
+      />
+      {formik.errors.shopname && formik.touched.shopname && (
+        <p>{formik.errors.shopname}</p>
+      )}
+      <textarea
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.description}
+        id='description'
+        type='text'
+        placeholder='Tell us about your shop'
+      />
+      {formik.errors.description && formik.touched.description && (
+        <p>{formik.errors.description}</p>
+      )}
+      <input
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.town}
+        id='town'
+        type='text'
+        placeholder='Shop location - town'
+      />
+      {formik.errors.town && formik.touched.town && <p>{formik.errors.town}</p>}
+      <input
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.year}
+        id='year'
+        type='number'
+        placeholder='Starting year'
+      />
+      {formik.errors.year && formik.touched.year && <p>{formik.errors.year}</p>}
+      <input
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.image}
+        id='image'
+        type='text'
+        placeholder='Image URL'
+      />
+      {formik.errors.image && formik.touched.image && (
+        <p>{formik.errors.image}</p>
+      )}
+      <button type='submit'>Create Shop</button>
+    </form>
+  );
 }
