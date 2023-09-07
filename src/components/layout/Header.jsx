@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import { useAuth } from '../../store/AuthProvider';
 import { getAuth, signOut } from 'firebase/auth';
+import { toast } from 'react-hot-toast';
 
 export default function Header() {
   const ctx = useAuth();
@@ -9,6 +10,7 @@ export default function Header() {
     const auth = getAuth();
     signOut(auth)
       .then(() => {
+        toast.success('You have logged out')
         // Sign-out successful.
         console.log('logged out')
       })

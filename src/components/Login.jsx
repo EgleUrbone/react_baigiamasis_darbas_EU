@@ -2,6 +2,7 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -24,6 +25,7 @@ export default function Login() {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
+        toast.success('Login successful, hello!')
         // Signed in
         const user = userCredential.user;
         console.log('user logged in ===', user);
@@ -31,6 +33,7 @@ export default function Login() {
         // ...
       })
       .catch((error) => {
+        toast.error('Login failed, check email or password');
         const errorCode = error.code;
         const errorMessage = error.message;
         console.warn('error loginantis  ===', errorCode, errorMessage);

@@ -3,6 +3,7 @@ import * as Yup from 'yup';
 import { useAuth } from '../store/AuthProvider';
 import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
+import { toast } from 'react-hot-toast';
 
 export default function NewShopForm() {
   const ctx = useAuth();
@@ -37,8 +38,10 @@ export default function NewShopForm() {
     try {
       const docRef = await addDoc(collection(db, 'shops'), newShop);
       console.log('Document written with ID: ', docRef.id);
+      toast.success('Shop created!')
     } catch (error) {
       console.log('error ===', error);
+      toast.error('Something went wrong')
     }
   }
 
