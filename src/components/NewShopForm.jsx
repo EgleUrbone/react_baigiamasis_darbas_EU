@@ -10,12 +10,14 @@ export default function NewShopForm() {
   const formik = useFormik({
     initialValues: {
       shopname: '',
+      description: '',
       town: '',
       year: '',
       image: '',
     },
     validationSchema: Yup.object({
       shopname: Yup.string().min(4).max(255).required(),
+      description: Yup.string().min(6).required(),
       town: Yup.string().min(4).required(),
       year: Yup.number().min(1970).max(2025).required(),
       image: Yup.string().min(5).required(),
@@ -52,6 +54,17 @@ export default function NewShopForm() {
     />
     {formik.errors.shopname && formik.touched.shopname && (
       <p>{formik.errors.shopname}</p>
+    )}
+    <textarea
+      onChange={formik.handleChange}
+      onBlur={formik.handleBlur}
+      value={formik.values.description}
+      id='description'
+      type='text'
+      placeholder='Tell us about your shop'
+    />
+    {formik.errors.description && formik.touched.description && (
+      <p>{formik.errors.description}</p>
     )}
     <input
       onChange={formik.handleChange}

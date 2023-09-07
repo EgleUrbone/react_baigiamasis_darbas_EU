@@ -1,7 +1,12 @@
-import React from 'react'
 
-export default function ShopCardList() {
+import SingleShop from './SingleShop';
+
+export default function ShopCardList(props) {
   return (
-    <div>ShopCardList</div>
-  )
+    <ul>
+      {props.list.map((sObj) => (
+        <SingleShop key={sObj.id} {...sObj} />
+      ))}
+    </ul>
+  );
 }

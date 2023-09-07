@@ -1,7 +1,13 @@
-import React from 'react'
 
-export default function SingleShop() {
+
+export default function SingleShop(props) {
   return (
-    <div>SingleShop</div>
+    <li>
+      <img src={props.image} alt="shop image" />
+      <h2>{props.shopname}</h2>
+      <p>{props.description}</p>
+      <p>{props.town}</p>
+      <p>{props.year}</p>
+    </li>
   )
 }
