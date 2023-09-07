@@ -56,7 +56,6 @@ export default function Header() {
           </NavLink>
         )}
       </nav>
-      <nav></nav>
     </header>
   );
 }

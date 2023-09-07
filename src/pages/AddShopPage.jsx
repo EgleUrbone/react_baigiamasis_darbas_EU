@@ -1,7 +1,12 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useAuth } from '../store/AuthProvider';
+import { addDoc, collection } from 'firebase/firestore';
+import { db } from '../firebase/firebase';
 
 export default function AddShopPage() {
+  const ctx = useAuth();
+
   const formik = useFormik({
     initialValues: {
       shopname: '',
@@ -17,13 +22,28 @@ export default function AddShopPage() {
     }),
     onSubmit: (values) => {
       console.log('values ===', values);
+      const newShopWithUid = {
+        ...values,
+        userUid: ctx.userUid,
+      };
+      console.log('newShopWithUid ===', newShopWithUid);
+      createNewShopFB(newShopWithUid);
     },
   });
 
+  async function createNewShopFB(newShop) {
+    try {
+      const docRef = await addDoc(collection(db, 'shops'), newShop);
+      console.log('Document written with ID: ', docRef.id);
+    } catch (error) {
+      console.log('error ===', error);
+    }
+  }
+
   return (
-    <div>
+    <div className='border border-slate-500'>
       <h1>AddsHOP</h1>
-      <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={formik.handleSubmit} className='flex flex-col '>
         <input
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
@@ -54,7 +74,7 @@ export default function AddShopPage() {
           type='number'
           placeholder='Starting year'
         />
-         {formik.errors.year && formik.touched.year && (
+        {formik.errors.year && formik.touched.year && (
           <p>{formik.errors.year}</p>
         )}
         <input
@@ -65,7 +85,7 @@ export default function AddShopPage() {
           type='text'
           placeholder='Image URL'
         />
-         {formik.errors.image && formik.touched.image && (
+        {formik.errors.image && formik.touched.image && (
           <p>{formik.errors.image}</p>
         )}
         <button type='submit'>Create Shop</button>
