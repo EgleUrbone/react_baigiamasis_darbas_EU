@@ -1,6 +1,7 @@
 import { collection, getDocs } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { db } from '../../firebase/firebase';
+import SingleComment from './SingleComment';
 
 export default function CommentsList(props) {
   const [commentsArr, setCommentsArr] = useState([]);
@@ -10,15 +11,14 @@ export default function CommentsList(props) {
       const querySnapshot = await getDocs(
         collection(db, 'shops', shopId, 'comments')
       );
+      const commentArr = [];
       querySnapshot.forEach((doc) => {
-        const commentsArr = [];
         // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, ' => ', doc.data());
-        commentsArr.push({
+        commentArr.push({
           id: doc.id,
           ...doc.data(),
         });
-        setCommentsArr(commentsArr);
+        setCommentsArr(commentArr);
       });
     } catch (error) {
       console.log('error ===', error);
@@ -28,6 +28,8 @@ export default function CommentsList(props) {
   useEffect(() => {
     getCommentsFromFB(props.shopId);
   }, []);
+
+  console.log('commentsArr ===', commentsArr);
 
   return (
     <ul>

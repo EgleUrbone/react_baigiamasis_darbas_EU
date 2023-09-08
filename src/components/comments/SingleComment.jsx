@@ -1,7 +1,10 @@
-import React from 'react'
 
-export default function SingleComment() {
+
+export default function SingleComment(props) {
   return (
-    <div>SingleComment</div>
+    <li>
+      <h4>{props.author}</h4>
+      <p>{props.text}</p>
+    </li>
   )
 }
