@@ -1,9 +1,9 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useAuth } from '../store/AuthProvider';
+import { useAuth } from '../../store/AuthProvider';
 import { addDoc, collection } from 'firebase/firestore';
-import { db } from '../firebase/firebase';
-import  toast  from 'react-hot-toast';
+import { db } from '../../firebase/firebase';
+import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
 export default function NewShopForm() {

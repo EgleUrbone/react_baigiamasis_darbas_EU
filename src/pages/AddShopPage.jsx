@@ -1,4 +1,4 @@
-import NewShopForm from '../components/NewShopForm';
+import NewShopForm from '../components/forms/NewShopForm';
 
 export default function AddShopPage() {
   return (
