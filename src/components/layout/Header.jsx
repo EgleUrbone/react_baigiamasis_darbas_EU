@@ -8,7 +8,7 @@ export default function Header() {
   const [shadow, setShadow] = useState(false);
 
 const addShadow = () => {
-  if (window.scrollY >= 130) {
+  if (window.scrollY >= 110) {
     setShadow(true)
   } else{
     setShadow(false)
@@ -66,7 +66,6 @@ window.addEventListener('scroll', addShadow)
         )}
         {ctx.isUserLoggedIn && (
           <NavLink
-            onClick={logOutFB}
             to={'/shops'}
             className={
               'font-semibold mx-3 py-2 hover:border-b-2 hover:border-orange-700 hover:text-orange-700'
