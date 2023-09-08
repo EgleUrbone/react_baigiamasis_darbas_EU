@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer className='bg-primary py-12 px-6'>
+    <footer className='bg-primary py-12 px-6 '>
       <h2 className='text-2xl mb-6'>The Daily Chirp Newsletter</h2>
       <p className='mb-6'>
         Join 225,000 subscribers who start their day with Lorem ipsum dolor sit

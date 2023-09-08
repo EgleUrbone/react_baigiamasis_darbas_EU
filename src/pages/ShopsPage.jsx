@@ -5,6 +5,7 @@ import ShopCardList from '../components/shops/ShopCardList';
 
 export default function ShopsPage() {
   const [shopsArr, setShopsArr] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   console.log('shopsArr ===', shopsArr);
 
@@ -21,18 +22,26 @@ export default function ShopsPage() {
         };
         dataBack.push(singleShop);
         setShopsArr(dataBack);
+        setIsLoading(false);
       });
     } catch (error) {
       console.log('error ===', error);
+      setIsLoading(false);
     }
   }
 
   useEffect(() => {
-    getAllShopsFB();
+    setIsLoading(true);
+    setTimeout(() => {
+      console.log('This will run after 1 second!')
+      getAllShopsFB();
+    }, 1000);
+    
   }, []);
 
   return (
     <div className='mt-[130px]'>
+      {isLoading ? <p className='text-center mt-2'>Loading...</p> : null}
       {shopsArr.length === 0 && <p>There are no shops to view..</p>}
       <ShopCardList list={shopsArr} />
     </div>
