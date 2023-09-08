@@ -32,7 +32,7 @@ export default function CommentsList(props) {
   console.log('commentsArr ===', commentsArr);
 
   return (
-    <ul>
+    <ul className='w-full'>
       {commentsArr.map((cObj) => (
         <SingleComment key={cObj.id} {...cObj} />
       ))}

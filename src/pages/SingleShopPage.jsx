@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { db } from '../firebase/firebase';
 import SlidingCards from '../components/SlidingCards';
 import CommentsList from '../components/comments/CommentsList';
+import AddComment from '../components/comments/AddComment';
 
 export default function SingleShopPage() {
   const [currentShop, setCurrentShop] = useState({});
@@ -51,6 +52,7 @@ export default function SingleShopPage() {
         <hr className='mb-7' />
       </div>
       <SlidingCards />
+      <AddComment />
       <CommentsList shopId={shopId} />
     </li>
   );
