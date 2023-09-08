@@ -1,4 +1,4 @@
-export default function SingleShop(props) {
+export default function SingleShopCard(props) {
   return (
     <li className='flex flex-col items-center mb-7 relative w-[370px] cursor-pointer'>
       <img
