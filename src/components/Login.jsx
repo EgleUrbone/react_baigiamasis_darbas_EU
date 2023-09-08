@@ -12,8 +12,15 @@ export default function Login() {
       password: '',
     },
     validationSchema: Yup.object({
-      email: Yup.string().email().required(),
-      password: Yup.string().min(6).max(255).required(),
+      email: Yup.string()
+        .trim()
+        .email()
+        .matches(
+          /^([a-ząčęėįšųūA-ZĄČĘĖĮŠŲŪ0-9._%-]+@[a-ząčęėįšųūA-ZĄČĘĖĮŠŲŪ0-9.-]+\.[a-zA-Z]{2,})$/,
+          'Check if email is correct'
+        )
+        .required(),
+      password: Yup.string().trim().min(6).max(255).required(),
     }),
     onSubmit: (values) => {
       console.log('values ===', values);
@@ -25,11 +32,11 @@ export default function Login() {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        toast.success('Login successful, hello!')
+        toast.success('Login successful, hello!');
         // Signed in
         const user = userCredential.user;
         console.log('user logged in ===', user);
-        navigate('/shops')
+        navigate('/shops');
         // ...
       })
       .catch((error) => {
@@ -56,7 +63,9 @@ export default function Login() {
           type='text'
         />
       </label>
-      {formik.errors.email && formik.touched.email && <p>{formik.errors.email}</p>}
+      {formik.errors.email && formik.touched.email && (
+        <p>{formik.errors.email}</p>
+      )}
       <label>
         Password
         <input
@@ -68,7 +77,9 @@ export default function Login() {
           type='password'
         />
       </label>
-      {formik.errors.password && formik.touched.password && <p>{formik.errors.password}</p>}
+      {formik.errors.password && formik.touched.password && (
+        <p>{formik.errors.password}</p>
+      )}
       <button
         type='submit'
         className='bg-slate-500 text-white px-4 py-2 rounded-sm'

@@ -22,28 +22,27 @@ export default function Header() {
 
   return (
     <header >
-      <div className='container flex justify-between items-center p-2 '>
         <Link to={'/login'}>
           <img
-            className='w-14'
+            className='w-14 m-2'
             src='/img/64063 [Converted]-02.png'
             alt='logo'
           />
         </Link>
-
-        <nav>
+       
+        <nav className='flex justify-center items-center'>
           {!ctx.isUserLoggedIn && (
             <NavLink
               to={'/login'}
-              className={'text-lg px-3 py-2 hover:bg-slate-200'}
+              className={'font-semibold mx-3 py-2 hover:border-b-2 hover:border-orange-700 hover:text-orange-700'}
             >
-              Login
+              Log In
             </NavLink>
           )}
           {!ctx.isUserLoggedIn && (
             <NavLink
               to={'/register'}
-              className={'text-lg px-3 py-2 hover:bg-slate-200'}
+              className={'font-semibold mx-3 py-2 hover:border-b-2 hover:border-orange-700 hover:text-orange-700'}
             >
               Register
             </NavLink>
@@ -51,22 +50,31 @@ export default function Header() {
           {ctx.isUserLoggedIn && (
             <NavLink
               onClick={logOutFB}
-              to={'/login'}
-              className={'text-lg px-3 py-2 hover:bg-slate-200'}
+              to={'/shops'}
+              className={'font-semibold mx-3 py-2 hover:border-b-2 hover:border-orange-700 hover:text-orange-700'}
             >
-              LogOut
+              Shops
+            </NavLink>
+          )}
+          {ctx.isUserLoggedIn && (
+            <NavLink
+              onClick={logOutFB}
+              to={'/login'}
+              className={'font-semibold mx-3 py-2 hover:border-b-2 hover:border-orange-700 hover:text-orange-700'}
+            >
+              Log Out
             </NavLink>
           )}
           {ctx.isUserLoggedIn && (
             <NavLink
               to={'/add-shop'}
-              className={'text-lg px-3 py-2 hover:bg-slate-200'}
+              className={'font-semibold border-b-2 border-white mx-3 py-2 hover:border-b-2 hover:border-orange-700 hover:text-orange-700'}
             >
               Add Shop
             </NavLink>
           )}
         </nav>
-      </div>
+      <hr className='w-[90%] ml-auto mr-auto mb-5' />
    
     </header>
   );

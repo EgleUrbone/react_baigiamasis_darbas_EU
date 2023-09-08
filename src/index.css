@@ -4,4 +4,6 @@
 
 .active {
   font-weight: bold;
+  border-bottom: solid 2px rgb(194, 65, 12);
+  color: rgb(194, 65, 12);
 }

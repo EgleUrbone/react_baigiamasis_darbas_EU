@@ -12,8 +12,11 @@ export default function RegisterForm() {
       password2: '',
     },
     validationSchema: Yup.object({
-      email: Yup.string().email().required(),
-      password: Yup.string().min(6).max(255).required(),
+      email: Yup.string().trim().email().matches(
+        /^([a-ząčęėįšųūA-ZĄČĘĖĮŠŲŪ0-9._%-]+@[a-ząčęėįšųūA-ZĄČĘĖĮŠŲŪ0-9.-]+\.[a-zA-Z]{2,})$/,
+        'Check if email is correct'
+      ).required(),
+      password: Yup.string().trim().min(6).max(255).required(),
       password2: Yup.string()
         .required('Please re-type your password')
         .oneOf([ref('password')], 'Passwords do not match'),
