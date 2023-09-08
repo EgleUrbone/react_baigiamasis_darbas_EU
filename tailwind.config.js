@@ -9,6 +9,9 @@ export default {
       fontFamily: {
         'rale': ['Raleway', 'sans-serif']
       },
+      colors: {
+        primary: 'rgb(235, 169, 55)',
+      }
     },
   },
   plugins: [],

@@ -51,7 +51,7 @@ window.addEventListener('scroll', addShadow)
           <NavLink
             to={'/login'}
             className={
-              'font-semibold mx-3 py-2 hover:border-b-2 hover:border-orange-700 hover:text-orange-700'
+              'font-semibold mx-3 py-2 hover:border-b-2 hover:border-primary hover:text-primary'
             }
           >
             Log In
@@ -61,7 +61,7 @@ window.addEventListener('scroll', addShadow)
           <NavLink
             to={'/register'}
             className={
-              'font-semibold mx-3 py-2 hover:border-b-2 hover:border-orange-700 hover:text-orange-700'
+              'font-semibold mx-3 py-2 hover:border-b-2 hover:border-primary hover:text-primary'
             }
           >
             Register
@@ -71,7 +71,7 @@ window.addEventListener('scroll', addShadow)
           <NavLink
             to={'/shops'}
             className={
-              'font-semibold mx-3 py-2 hover:border-b-2 hover:border-orange-700 hover:text-orange-700'
+              'font-semibold mx-3 py-2 hover:border-b-2 hover:border-primary hover:text-primary'
             }
           >
             Shops
@@ -82,7 +82,7 @@ window.addEventListener('scroll', addShadow)
             onClick={logOutFB}
             to={'/login'}
             className={
-              'font-semibold mx-3 py-2 hover:border-b-2 hover:border-orange-700 hover:text-orange-700'
+              'font-semibold mx-3 py-2 hover:border-b-2 hover:border-primary hover:text-primary'
             }
           >
             Log Out
@@ -92,7 +92,7 @@ window.addEventListener('scroll', addShadow)
           <NavLink
             to={'/add-shop'}
             className={
-              'font-semibold border-b-2 border-white mx-3 py-2 hover:border-b-2 hover:border-orange-700 hover:text-orange-700'
+              'font-semibold border-b-2 border-white mx-3 py-2 hover:border-b-2 hover:border-primary hover:text-primary'
             }
           >
             Add Shop
