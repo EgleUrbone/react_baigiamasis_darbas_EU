@@ -5,6 +5,7 @@ import { useAuth } from './store/AuthProvider';
 import ShopsPage from './pages/ShopsPage';
 import AddShopPage from './pages/AddShopPage';
 import { Toaster } from 'react-hot-toast';
+import RegisterPage from './pages/RegisterPage';
 
 function App() {
   const ctx = useAuth();
@@ -19,6 +20,12 @@ function App() {
           path='/login'
           element={
             !ctx.isUserLoggedIn ? <LoginPage /> : <Navigate to={'/shops'} />
+          }
+        />
+        <Route
+          path='/register'
+          element={
+            !ctx.isUserLoggedIn ? <RegisterPage /> : <Navigate to={'/shops'} />
           }
         />
         <Route
