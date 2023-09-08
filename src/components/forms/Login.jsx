@@ -50,39 +50,35 @@ export default function Login() {
   return (
     <form
       onSubmit={formik.handleSubmit}
-      className='max-w-sm flex flex-col gap-1'
+      className='max-w-sm flex flex-col gap-1 ml-auto mr-auto'
     >
-      <label>
-        Email Address
         <input
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.email}
-          className='border border-slate-500 px-4 py-2 w-full rounded-sm'
+          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black'
           id='email'
           type='text'
+          placeholder='Email'
         />
-      </label>
       {formik.errors.email && formik.touched.email && (
         <p>{formik.errors.email}</p>
       )}
-      <label>
-        Password
         <input
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.password}
-          className='border border-slate-500 px-4 py-2 w-full rounded-sm'
+          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black'
           id='password'
           type='password'
+          placeholder='Password'
         />
-      </label>
       {formik.errors.password && formik.touched.password && (
         <p>{formik.errors.password}</p>
       )}
       <button
         type='submit'
-        className='bg-slate-500 text-white px-4 py-2 rounded-sm'
+        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-6 uppercase hover:bg-primary hover:border-primary hover:text-white'
       >
         Log In
       </button>
