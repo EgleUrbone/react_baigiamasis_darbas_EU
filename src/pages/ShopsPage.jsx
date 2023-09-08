@@ -32,7 +32,7 @@ export default function ShopsPage() {
   }, []);
 
   return (
-    <div>
+    <div className='mt-[130px]'>
       {shopsArr.length === 0 && <p>There are no shops to view..</p>}
       <ShopCardList list={shopsArr} />
     </div>

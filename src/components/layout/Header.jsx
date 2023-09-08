@@ -2,8 +2,21 @@ import { Link, NavLink } from 'react-router-dom';
 import { useAuth } from '../../store/AuthProvider';
 import { getAuth, signOut } from 'firebase/auth';
 import { toast } from 'react-hot-toast';
+import { useState } from 'react';
 
 export default function Header() {
+  const [shadow, setShadow] = useState(false);
+
+const addShadow = () => {
+  if (window.scrollY >= 130) {
+    setShadow(true)
+  } else{
+    setShadow(false)
+  }
+}
+
+window.addEventListener('scroll', addShadow)
+
   const ctx = useAuth();
 
   function logOutFB() {
@@ -21,61 +34,70 @@ export default function Header() {
   }
 
   return (
-    <header >
-        <Link to={'/login'}>
-          <img
-            className='w-14 m-2'
-            src='/img/64063 [Converted]-02.png'
-            alt='logo'
-          />
-        </Link>
-       
-        <nav className='flex justify-center items-center'>
-          {!ctx.isUserLoggedIn && (
-            <NavLink
-              to={'/login'}
-              className={'font-semibold mx-3 py-2 hover:border-b-2 hover:border-orange-700 hover:text-orange-700'}
-            >
-              Log In
-            </NavLink>
-          )}
-          {!ctx.isUserLoggedIn && (
-            <NavLink
-              to={'/register'}
-              className={'font-semibold mx-3 py-2 hover:border-b-2 hover:border-orange-700 hover:text-orange-700'}
-            >
-              Register
-            </NavLink>
-          )}
-          {ctx.isUserLoggedIn && (
-            <NavLink
-              onClick={logOutFB}
-              to={'/shops'}
-              className={'font-semibold mx-3 py-2 hover:border-b-2 hover:border-orange-700 hover:text-orange-700'}
-            >
-              Shops
-            </NavLink>
-          )}
-          {ctx.isUserLoggedIn && (
-            <NavLink
-              onClick={logOutFB}
-              to={'/login'}
-              className={'font-semibold mx-3 py-2 hover:border-b-2 hover:border-orange-700 hover:text-orange-700'}
-            >
-              Log Out
-            </NavLink>
-          )}
-          {ctx.isUserLoggedIn && (
-            <NavLink
-              to={'/add-shop'}
-              className={'font-semibold border-b-2 border-white mx-3 py-2 hover:border-b-2 hover:border-orange-700 hover:text-orange-700'}
-            >
-              Add Shop
-            </NavLink>
-          )}
-        </nav>
-      <hr className='w-[90%] ml-auto mr-auto mb-5' />
-   
+    <header className={shadow ? 'fixed top-0 w-full bg-white z-50 drop-shadow-2xl' : 'fixed top-0 w-full bg-white z-50'}>
+      <Link to={'/login'}>
+        <img
+          className='w-14 m-2'
+          src='/img/64063 [Converted]-02.png'
+          alt='logo'
+        />
+      </Link>
+
+      <nav className='flex justify-center items-center'>
+        {!ctx.isUserLoggedIn && (
+          <NavLink
+            to={'/login'}
+            className={
+              'font-semibold mx-3 py-2 hover:border-b-2 hover:border-orange-700 hover:text-orange-700'
+            }
+          >
+            Log In
+          </NavLink>
+        )}
+        {!ctx.isUserLoggedIn && (
+          <NavLink
+            to={'/register'}
+            className={
+              'font-semibold mx-3 py-2 hover:border-b-2 hover:border-orange-700 hover:text-orange-700'
+            }
+          >
+            Register
+          </NavLink>
+        )}
+        {ctx.isUserLoggedIn && (
+          <NavLink
+            onClick={logOutFB}
+            to={'/shops'}
+            className={
+              'font-semibold mx-3 py-2 hover:border-b-2 hover:border-orange-700 hover:text-orange-700'
+            }
+          >
+            Shops
+          </NavLink>
+        )}
+        {ctx.isUserLoggedIn && (
+          <NavLink
+            onClick={logOutFB}
+            to={'/login'}
+            className={
+              'font-semibold mx-3 py-2 hover:border-b-2 hover:border-orange-700 hover:text-orange-700'
+            }
+          >
+            Log Out
+          </NavLink>
+        )}
+        {ctx.isUserLoggedIn && (
+          <NavLink
+            to={'/add-shop'}
+            className={
+              'font-semibold border-b-2 border-white mx-3 py-2 hover:border-b-2 hover:border-orange-700 hover:text-orange-700'
+            }
+          >
+            Add Shop
+          </NavLink>
+        )}
+      </nav>
+      {/* <hr className='w-[90%] ml-auto mr-auto' /> */}
     </header>
   );
 }

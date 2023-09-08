@@ -1,6 +1,6 @@
 export default function SingleShop(props) {
   return (
-    <li className='flex flex-col items-center mb-7 relative'>
+    <li className='flex flex-col items-center mb-7 relative w-[370px]'>
       <img
         className='w-[370px] h-[450px] object-cover rounded-2xl'
         src={props.image}
