@@ -45,7 +45,7 @@ export default function Header() {
     >
       <Link to={'/login'}>
         <img
-          className='w-16 m-2'
+          className='w-20 m-4 cursor-pointer'
           src='/img/logo-chirp-02.png'
           alt='logo'
         />
@@ -106,7 +106,7 @@ export default function Header() {
         {ctx.isUserLoggedIn ? (
           <img
             src='/img/bird-user.png'
-            className='w-7'
+            className='w-7 cursor-pointer hover:bg-primary hover:rounded-full'
             onClick={() => navigate('/user-profile')}
           />
         ) : (
