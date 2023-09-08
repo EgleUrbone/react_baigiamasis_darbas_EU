@@ -3,22 +3,21 @@ import { useAuth } from '../../store/AuthProvider';
 import { getAuth, signOut } from 'firebase/auth';
 import { toast } from 'react-hot-toast';
 import { useState } from 'react';
-import {HiOutlineUserCircle} from 'react-icons/hi'
 
 export default function Header() {
   const [shadow, setShadow] = useState(false);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-const addShadow = () => {
-  if (window.scrollY >= 110) {
-    setShadow(true)
-  } else{
-    setShadow(false)
-  }
-}
+  const addShadow = () => {
+    if (window.scrollY >= 110) {
+      setShadow(true);
+    } else {
+      setShadow(false);
+    }
+  };
 
-window.addEventListener('scroll', addShadow)
+  window.addEventListener('scroll', addShadow);
 
   const ctx = useAuth();
 
@@ -37,11 +36,17 @@ window.addEventListener('scroll', addShadow)
   }
 
   return (
-    <header className={shadow ? 'fixed top-0 w-full bg-white z-50 drop-shadow-2xl' : 'fixed top-0 w-full bg-white z-50'}>
+    <header
+      className={
+        shadow
+          ? 'fixed top-0 w-full bg-white z-50 drop-shadow-2xl'
+          : 'fixed top-0 w-full bg-white z-50'
+      }
+    >
       <Link to={'/login'}>
         <img
-          className='w-14 m-2'
-          src='/img/64063 [Converted]-02.png'
+          className='w-16 m-2'
+          src='/img/logo-chirp-02.png'
           alt='logo'
         />
       </Link>
@@ -98,9 +103,16 @@ window.addEventListener('scroll', addShadow)
             Add Shop
           </NavLink>
         )}
-        {ctx.isUserLoggedIn ? <HiOutlineUserCircle className='text-2xl stroke-[1.5px]' onClick={() => navigate('/user-profile')} /> : ''}
+        {ctx.isUserLoggedIn ? (
+          <img
+            src='/img/bird-user.png'
+            className='w-7'
+            onClick={() => navigate('/user-profile')}
+          />
+        ) : (
+          ''
+        )}
       </nav>
-      {/* <hr className='w-[90%] ml-auto mr-auto' /> */}
     </header>
   );
 }
