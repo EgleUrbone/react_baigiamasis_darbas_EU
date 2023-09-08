@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../store/AuthProvider';
 import { getAuth, signOut } from 'firebase/auth';
 import { toast } from 'react-hot-toast';
@@ -7,6 +7,8 @@ import {HiOutlineUserCircle} from 'react-icons/hi'
 
 export default function Header() {
   const [shadow, setShadow] = useState(false);
+
+  const navigate = useNavigate()
 
 const addShadow = () => {
   if (window.scrollY >= 110) {
@@ -96,7 +98,7 @@ window.addEventListener('scroll', addShadow)
             Add Shop
           </NavLink>
         )}
-        {ctx.isUserLoggedIn ? <HiOutlineUserCircle className='text-2xl stroke-[1.5px]' onClick={() => {}} /> : ''}
+        {ctx.isUserLoggedIn ? <HiOutlineUserCircle className='text-2xl stroke-[1.5px]' onClick={() => navigate('/user-profile')} /> : ''}
       </nav>
       {/* <hr className='w-[90%] ml-auto mr-auto' /> */}
     </header>

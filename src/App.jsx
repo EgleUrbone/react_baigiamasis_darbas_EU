@@ -7,6 +7,7 @@ import AddShopPage from './pages/AddShopPage';
 import { Toaster } from 'react-hot-toast';
 import RegisterPage from './pages/RegisterPage';
 import SingleShopPage from './pages/SingleShopPage';
+import UserProfilePage from './pages/UserProfilePage';
 
 function App() {
   const ctx = useAuth();
@@ -39,6 +40,12 @@ function App() {
           path='/add-shop'
           element={
             ctx.isUserLoggedIn ? <AddShopPage /> : <Navigate to={'/login'} />
+          }
+        />
+        <Route
+          path='/user-profile'
+          element={
+            ctx.isUserLoggedIn ? <UserProfilePage /> : <Navigate to={'/login'} />
           }
         />
         <Route
