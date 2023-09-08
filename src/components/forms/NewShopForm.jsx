@@ -59,6 +59,7 @@ export default function NewShopForm() {
         id='shopname'
         type='text'
         placeholder='Your shop name'
+        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black'
       />
       {formik.errors.shopname && formik.touched.shopname && (
         <p>{formik.errors.shopname}</p>
@@ -70,6 +71,7 @@ export default function NewShopForm() {
         id='description'
         type='text'
         placeholder='Tell us about your shop'
+        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black'
       />
       {formik.errors.description && formik.touched.description && (
         <p>{formik.errors.description}</p>
@@ -81,6 +83,7 @@ export default function NewShopForm() {
         id='town'
         type='text'
         placeholder='Shop location - town'
+        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black'
       />
       {formik.errors.town && formik.touched.town && <p>{formik.errors.town}</p>}
       <input
@@ -90,6 +93,7 @@ export default function NewShopForm() {
         id='year'
         type='number'
         placeholder='Starting year'
+        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black'
       />
       {formik.errors.year && formik.touched.year && <p>{formik.errors.year}</p>}
       <input
@@ -99,11 +103,12 @@ export default function NewShopForm() {
         id='image'
         type='text'
         placeholder='Image URL'
+        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black'
       />
       {formik.errors.image && formik.touched.image && (
         <p>{formik.errors.image}</p>
       )}
-      <button type='submit'>Create Shop</button>
+      <button type='submit' className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-6 uppercase hover:bg-primary hover:border-primary hover:text-white'>Create Shop</button>
     </form>
   );
 }
