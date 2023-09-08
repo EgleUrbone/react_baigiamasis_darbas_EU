@@ -8,6 +8,7 @@ import { Toaster } from 'react-hot-toast';
 import RegisterPage from './pages/RegisterPage';
 import SingleShopPage from './pages/SingleShopPage';
 import UserProfilePage from './pages/UserProfilePage';
+import Footer from './components/layout/Footer';
 
 function App() {
   const ctx = useAuth();
@@ -64,6 +65,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer />
     </div>
   );
 }
