@@ -30,17 +30,17 @@ export default function CommentsList(props) {
     getCommentsFromFB(props.shopId);
   }, []);
 
-  console.log('commentsArr ===', commentsArr);
+  let currentShopId = props.shopId;
+  // console.log('currentShopId ===', currentShopId);
 
   return (
     <div className='w-full'>
-      <AddCommentForm />
-        <ul className='w-full'>
-      {commentsArr.map((cObj) => (
-        <SingleComment key={cObj.id} {...cObj} />
-      ))}
-    </ul>
+      <AddCommentForm shopId={currentShopId} />
+      <ul className='w-full'>
+        {commentsArr.map((cObj) => (
+          <SingleComment key={cObj.id} {...cObj} />
+        ))}
+      </ul>
     </div>
-  
   );
 }
