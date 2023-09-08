@@ -6,23 +6,23 @@ import * as Yup from 'yup';
 import { auth } from '../../firebase/firebase';
 
 export default function UserProfileUpdateForm() {
-  const [displayname, setDisplayname] = useState(auth.currentUser.displayName)
+  const [displayName, setDisplayName] = useState(auth.currentUser.displayName)
   const [photo, setPhoto] = useState(auth.currentUser.photoURL)
 
  
   const formik = useFormik({
     initialValues: {
-      displayname: '',
+      displayName: '',
       photo: '',
     },
     validationSchema: Yup.object({
-      displayname: Yup.string().trim().min(2).max(30),
+      displayName: Yup.string().trim().min(2).max(30),
       photo: Yup.string().trim().min(5),
     }),
     onSubmit: (values) => {
       console.log('values ===', values);
-      updatePofileFB(values.displayname, values.photo);
-      setDisplayname(values.displayname)
+      updatePofileFB(values.displayName, values.photo);
+      setDisplayName(values.displayName)
       setPhoto(values.photo)
     },
   });
@@ -30,7 +30,7 @@ export default function UserProfileUpdateForm() {
   function updatePofileFB(displayname, photo) {
     const auth = getAuth();
     updateProfile(auth.currentUser, {
-      displayname: displayname,
+      displayName: displayname,
       photoURL: photo,
     })
       .then(() => {
@@ -45,23 +45,24 @@ export default function UserProfileUpdateForm() {
         // ...
       });
   }
+console.log(auth.currentUser)
 
   return (
     <div>
 
-    <h2>{displayname}</h2>
-    <img className='profPic' src={photo} alt='' />
+    <h2>{displayName}</h2>
+    <img src={photo} alt='' />
     <form onSubmit={formik.handleSubmit}>
       <input
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        value={formik.values.displayname}
+        value={formik.values.displayName}
         type='text'
         placeholder='displayname'
-        id='displayname'
+        id='displayName'
       />
-      {formik.errors.displayname && formik.touched.displayname && (
-        <p>{formik.errors.displayname}</p>
+      {formik.errors.displayName && formik.touched.displayName && (
+        <p>{formik.errors.displayName}</p>
       )}
       <input
         onChange={formik.handleChange}
@@ -71,8 +72,8 @@ export default function UserProfileUpdateForm() {
         placeholder='photo url'
         id='photo'
       />
-      {formik.errors.displayname && formik.touched.displayname && (
-        <p>{formik.errors.displayname}</p>
+      {formik.errors.photo && formik.touched.photo && (
+        <p>{formik.errors.photo}</p>
       )}
       <button className='' type='submit'>
         Update profile
