@@ -1,4 +1,6 @@
+import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { useFormik } from 'formik';
+import toast from 'react-hot-toast';
 import * as Yup from 'yup';
 import { ref } from 'yup';
 
@@ -18,11 +20,34 @@ export default function RegisterForm() {
     }),
     onSubmit: (values) => {
       console.log('values ===', values);
+      createNewUserFB(values.email, values.password)
     },
   });
 
+  function createNewUserFB(email, password) {
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        toast.success('Registration was successful')
+        // Signed in
+        const user = userCredential.user;
+        console.log('new user ===', user);
+        // ...
+      })
+      .catch((error) => {
+        toast.error('Registration failed, check email or password')
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.warn('error regitrating === ', errorCode, errorMessage )
+        // ..
+      });
+  }
+
   return (
-    <form className='max-w-sm flex flex-col gap-1'>
+    <form
+      onSubmit={formik.handleSubmit}
+      className='max-w-sm flex flex-col gap-1'
+    >
       <label>
         Email Address
         <input
@@ -45,7 +70,7 @@ export default function RegisterForm() {
           value={formik.values.password}
           className='border border-slate-500 px-4 py-2 w-full rounded-sm'
           id='password'
-          type='text'
+          type='password'
         />
       </label>
       {formik.errors.password && formik.touched.password && (
@@ -59,7 +84,7 @@ export default function RegisterForm() {
           value={formik.values.password2}
           className='border border-slate-500 px-4 py-2 w-full rounded-sm'
           id='password2'
-          type='text'
+          type='password'
         />
       </label>
       {formik.errors.password2 && formik.touched.password2 && (
