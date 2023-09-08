@@ -106,7 +106,7 @@ export default function Header() {
         {ctx.isUserLoggedIn ? (
           <img
             src='/img/bird-user.png'
-            className='w-7 cursor-pointer hover:bg-primary hover:rounded-full'
+            className='w-7 cursor-pointer hover:border-[2px] hover:border-primary hover:rounded-full'
             onClick={() => navigate('/user-profile')}
           />
         ) : (
