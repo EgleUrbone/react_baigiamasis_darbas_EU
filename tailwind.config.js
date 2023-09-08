@@ -7,11 +7,12 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'rale': ['Raleway', 'sans-serif']
+        'rale': ['Raleway', 'sans-serif'],
+        'header': ['DM Serif Display', 'serif']
       },
       colors: {
         primary: 'rgb(235, 169, 55)',
-      }
+      },
     },
   },
   plugins: [],

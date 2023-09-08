@@ -2,6 +2,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { db } from '../firebase/firebase';
+import SlidingCards from '../components/SlidingCards';
 
 export default function SingleShopPage() {
   const [currentShop, setCurrentShop] = useState({});
@@ -29,26 +30,26 @@ export default function SingleShopPage() {
     getData(shopId);
   }, []);
 
-
   return (
-    <li className='flex items-center mb-7  w-[370px] cursor-pointer mt-[130px]'>
+    <li className='flex flex-col items-center mb-7 ml-auto mr-auto w-[370px] cursor-pointer mt-[130px]'>
       <img
-        className='w-[370px] h-[450px] object-cover rounded-2xl '
+        className='w-[370px] h-[450px] object-cover rounded-2xl mb-6'
         src={currentShop.image}
         alt='shop image'
       />
       <div>
-        <h2 className='bg-black px-2 py-1 text-white mb-2 uppercase'>
+        <h2 className='py-1  mb-2 uppercase font-header text-3xl tracking-wider'>
           {currentShop.shopname}
         </h2>
         {/* <p>{props.description}</p>
       <p>{props.town}</p> */}
-        <p className='bg-black px-2 py-1 text-white inline-block'>
-          {currentShop.year}
+        <p className='bg-black px-2 py-1 text-white inline-block mb-2'>
+          {currentShop.year}, {currentShop.town}
         </p>
-        <p>{currentShop.description}</p>
-        <p>{currentShop.town}</p>
+        <p className='mb-3'>{currentShop.description}</p>
+        <hr className='mb-7' />
       </div>
+      <SlidingCards />
     </li>
   );
 }
