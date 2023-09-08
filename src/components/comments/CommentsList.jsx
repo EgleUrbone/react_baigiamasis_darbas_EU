@@ -2,6 +2,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { db } from '../../firebase/firebase';
 import SingleComment from './SingleComment';
+import AddCommentForm from './AddCommentForm';
 
 export default function CommentsList(props) {
   const [commentsArr, setCommentsArr] = useState([]);
@@ -32,10 +33,14 @@ export default function CommentsList(props) {
   console.log('commentsArr ===', commentsArr);
 
   return (
-    <ul className='w-full'>
+    <div className='w-full'>
+      <AddCommentForm />
+        <ul className='w-full'>
       {commentsArr.map((cObj) => (
         <SingleComment key={cObj.id} {...cObj} />
       ))}
     </ul>
+    </div>
+  
   );
 }
