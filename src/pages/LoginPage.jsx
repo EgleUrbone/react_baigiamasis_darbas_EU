@@ -6,6 +6,7 @@ export default function LoginPage() {
   return (
     <div className='mt-[130px]'>
       <Login />
+      <p className='text-center font-semibold mb-3'>OR...</p>
       <GoogleLogin />
     </div>
   );

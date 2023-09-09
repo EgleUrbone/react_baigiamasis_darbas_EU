@@ -50,7 +50,7 @@ export default function Login() {
   return (
     <form
       onSubmit={formik.handleSubmit}
-      className='max-w-sm flex flex-col gap-1 ml-auto mr-auto'
+      className='max-w-sm flex flex-col gap-1 ml-auto mr-auto mt-6'
     >
         <input
           onChange={formik.handleChange}
@@ -78,7 +78,7 @@ export default function Login() {
       )}
       <button
         type='submit'
-        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-10 uppercase hover:bg-primary hover:border-primary hover:text-white'
+        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-3 uppercase hover:bg-primary hover:border-primary hover:text-white'
       >
         Log In
       </button>

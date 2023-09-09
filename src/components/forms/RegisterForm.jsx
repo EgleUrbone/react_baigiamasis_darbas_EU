@@ -49,53 +49,47 @@ export default function RegisterForm() {
   return (
     <form
       onSubmit={formik.handleSubmit}
-      className='max-w-sm flex flex-col gap-1'
+      className='max-w-sm flex flex-col gap-1 ml-auto mr-auto mt-6'
     >
-      <label>
-        Email Address
         <input
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.email}
-          className='border border-slate-500 px-4 py-2 w-full rounded-sm'
+          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black'
           id='email'
           type='text'
+          placeholder='Email'
         />
-      </label>
       {formik.errors.email && formik.touched.email && (
         <p>{formik.errors.email}</p>
       )}
-      <label>
-        Password
         <input
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.password}
-          className='border border-slate-500 px-4 py-2 w-full rounded-sm'
+          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black'
           id='password'
           type='password'
+          placeholder='Password'
         />
-      </label>
       {formik.errors.password && formik.touched.password && (
         <p>{formik.errors.password}</p>
       )}
-      <label>
-        Repeat password
         <input
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.password2}
-          className='border border-slate-500 px-4 py-2 w-full rounded-sm'
+          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black'
           id='password2'
           type='password'
+          placeholder='Repeat password'
         />
-      </label>
       {formik.errors.password2 && formik.touched.password2 && (
         <p>{formik.errors.password2}</p>
       )}
       <button
         type='submit'
-        className='bg-slate-500 text-white px-4 py-2 rounded-sm'
+        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-10 uppercase hover:bg-primary hover:border-primary hover:text-white'
       >
         Register
       </button>
