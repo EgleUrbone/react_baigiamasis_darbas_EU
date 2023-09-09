@@ -34,13 +34,17 @@ export default function Footer() {
 
   return (
     <footer className='bg-primary py-12 px-6 mt-auto '>
+      <div className='max-w-7xl ml-auto mr-auto'>
       <h2 className='text-2xl mb-6'>The Daily Chirp Newsletter</h2>
       <p className='mb-6'>
         Join 225,000 subscribers who start their day with Lorem ipsum dolor sit
         amet consectetur adipisicing elit. Nihil, odio!{' '}
         <FiFeather className='inline-block stroke-[1.5px]' />
       </p>
-      <form onSubmit={formik.handleSubmit}>
+      <form
+        onSubmit={formik.handleSubmit}
+        className='sm:flex sm:items-center sm:justify-center sm:mb-10 sm:gap-3 lg:w-3/4 xl:w-3/6 xl:flex xl:items-center xl:justify-center xl:gap-3 xl:mb-10'
+      >
         <input
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
@@ -48,7 +52,7 @@ export default function Footer() {
           id='newsemail'
           type='text'
           placeholder='Email address'
-          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black'
+          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black sm:mb-0 xl:mb-0'
         />
         {formik.errors.newsemail && formik.touched.newsemail && (
           <p className='text-red-600 font-medium ml-3'>
@@ -57,45 +61,48 @@ export default function Footer() {
         )}
         <button
           type='submit'
-          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-6'
+          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-10 sm:mb-0 sm:w-40 xl:mb-0 xl:w-40'
         >
           JOIN
         </button>
       </form>
-      <nav className='mb-6'>
-        <Link to={'/shops'} className='pr-2'>
-          ABOUT
-        </Link>
-        <Link to={'/shops'} className='border-l-[1.5px] border-black px-2'>
-          ADVERTISE
-        </Link>
-        <Link to={'/shops'} className='border-l-[1.5px] border-black px-2'>
-          PRIVACY POLICY
-        </Link>
-        <Link to={'/shops'} className='border-l-[1.5px] border-black px-2'>
-          TERMS
-        </Link>
-        <Link to={'/register'} className='border-l-[1.5px] border-black px-2'>
-          JOIN US
-        </Link>
-      </nav>
-      <ul className='flex gap-2 text-xl mb-6'>
-        <li>
-          <BiLogoInstagram />
-        </li>
-        <li>
-          <BiLogoPinterest />
-        </li>
-        <li>
-          <BiLogoTwitter />
-        </li>
-        <li>
-          <BiLogoFacebook />
-        </li>
-      </ul>
+      <div className='lg:flex justify-between'>
+        <nav className='mb-6'>
+          <Link to={'/shops'} className='pr-2'>
+            ABOUT
+          </Link>
+          <Link to={'/shops'} className='border-l-[1.5px] border-black px-2'>
+            ADVERTISE
+          </Link>
+          <Link to={'/shops'} className='border-l-[1.5px] border-black px-2'>
+            PRIVACY POLICY
+          </Link>
+          <Link to={'/shops'} className='border-l-[1.5px] border-black px-2'>
+            TERMS
+          </Link>
+          <Link to={'/register'} className='border-l-[1.5px] border-black px-2'>
+            JOIN US
+          </Link>
+        </nav>
+        <ul className='flex gap-2 text-xl mb-6 lg:text-2xl lg:gap-3'>
+          <li>
+            <BiLogoInstagram />
+          </li>
+          <li>
+            <BiLogoPinterest />
+          </li>
+          <li>
+            <BiLogoTwitter />
+          </li>
+          <li>
+            <BiLogoFacebook />
+          </li>
+        </ul>
+      </div>
       <p className='flex gap-1 items-center'>
         <BiCopyright /> Chirp
       </p>
+      </div>
     </footer>
   );
 }

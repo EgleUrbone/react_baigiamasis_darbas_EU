@@ -5,6 +5,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+
     extend: {
       fontFamily: {
         'rale': ['Raleway', 'sans-serif'],
@@ -12,6 +13,9 @@ export default {
       },
       colors: {
         primary: 'rgb(235, 169, 55)',
+      },
+      screens: {
+        'xl': '1440px',
       },
     },
   },
