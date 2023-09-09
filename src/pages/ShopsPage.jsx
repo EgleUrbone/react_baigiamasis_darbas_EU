@@ -40,9 +40,9 @@ export default function ShopsPage() {
   }, []);
 
   return (
-    <div className='mt-[130px]'>
-      <h1 className='font-header text-2xl mb-4 mt-2 tracking-wide text-center
-      '>Check our Shops</h1>
+    <div className='mt-[130px] lg:ml-auto lg:mr-auto'>
+      <h1 className='font-header text-2xl mb-4 mt-2 tracking-wide text-center lg:text-[30px] lg:mb-14 lg:mt-6 2xl:text-[36px]
+      '>Check out our Shops</h1>
       {isLoading ? <p className='text-center mt-2 mb-2'>Loading...</p> : null}
       {shopsArr.length === 0 && <p className='text-center mt-2'>There are no shops to view..</p>}
       <ShopCardList list={shopsArr} />
