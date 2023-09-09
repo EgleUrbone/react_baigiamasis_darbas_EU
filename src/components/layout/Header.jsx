@@ -45,13 +45,13 @@ export default function Header() {
     >
       <Link to={'/login'}>
         <img
-          className='w-20 m-4 cursor-pointer'
+          className='w-20 m-4 cursor-pointer 2xl:w-24'
           src='/img/logo-chirp-02.png'
           alt='logo'
         />
       </Link>
 
-      <nav className='flex justify-center items-center'>
+      <nav className='flex justify-center items-center lg:text-lg xl:gap-2'>
         {!ctx.isUserLoggedIn && (
           <NavLink
             to={'/login'}
