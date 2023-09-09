@@ -1,3 +1,5 @@
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import {
   BiLogoInstagram,
   BiLogoPinterest,
@@ -7,8 +9,29 @@ import {
 } from 'react-icons/bi';
 import { FiFeather } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 export default function Footer() {
+  const formik = useFormik({
+    initialValues: {
+      newsemail: '',
+    },
+    validationSchema: Yup.object({
+      newsemail: Yup.string()
+        .trim()
+        .email()
+        .matches(
+          /^([a-ząčęėįšųūA-ZĄČĘĖĮŠŲŪ0-9._%-]+@[a-ząčęėįšųūA-ZĄČĘĖĮŠŲŪ0-9.-]+\.[a-zA-Z]{2,})$/,
+          'Check if email is correct'
+        )
+        .required(),
+    }),
+    onSubmit: (values) => {
+      console.log('email for newsletter received ===', values);
+      toast.success('You subscribed to our newsletter!');
+    },
+  });
+
   return (
     <footer className='bg-primary py-12 px-6 mt-auto '>
       <h2 className='text-2xl mb-6'>The Daily Chirp Newsletter</h2>
@@ -17,14 +40,28 @@ export default function Footer() {
         amet consectetur adipisicing elit. Nihil, odio!{' '}
         <FiFeather className='inline-block stroke-[1.5px]' />
       </p>
-      <input
-        type='text'
-        placeholder='Email address'
-        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black'
-      />
-      <button className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-6'>
-        JOIN
-      </button>
+      <form onSubmit={formik.handleSubmit}>
+        <input
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.newsemail}
+          id='newsemail'
+          type='text'
+          placeholder='Email address'
+          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black'
+        />
+        {formik.errors.newsemail && formik.touched.newsemail && (
+          <p className='text-red-600 font-medium ml-3'>
+            {formik.errors.newsemail}
+          </p>
+        )}
+        <button
+          type='submit'
+          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-6'
+        >
+          JOIN
+        </button>
+      </form>
       <nav className='mb-6'>
         <Link to={'/shops'} className='pr-2'>
           ABOUT
