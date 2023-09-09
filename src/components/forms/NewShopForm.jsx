@@ -59,10 +59,10 @@ export default function NewShopForm() {
         id='shopname'
         type='text'
         placeholder='Your shop name'
-        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black'
+        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent  placeholder:text-black'
       />
       {formik.errors.shopname && formik.touched.shopname && (
-        <p>{formik.errors.shopname}</p>
+        <p className='text-red-600 font-medium ml-3'>{formik.errors.shopname}</p>
       )}
       <textarea
         onChange={formik.handleChange}
@@ -71,10 +71,10 @@ export default function NewShopForm() {
         id='description'
         type='text'
         placeholder='Tell us about your shop'
-        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black'
+        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mt-2 placeholder:text-black'
       />
       {formik.errors.description && formik.touched.description && (
-        <p>{formik.errors.description}</p>
+        <p className='text-red-600 font-medium ml-3'>{formik.errors.description}</p>
       )}
       <input
         onChange={formik.handleChange}
@@ -83,9 +83,9 @@ export default function NewShopForm() {
         id='town'
         type='text'
         placeholder='Shop location - town'
-        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black'
+        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mt-2 placeholder:text-black'
       />
-      {formik.errors.town && formik.touched.town && <p>{formik.errors.town}</p>}
+      {formik.errors.town && formik.touched.town && <p className='text-red-600 font-medium ml-3'>{formik.errors.town}</p>}
       <input
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
@@ -93,9 +93,9 @@ export default function NewShopForm() {
         id='year'
         type='number'
         placeholder='Starting year'
-        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black'
+        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mt-2 placeholder:text-black'
       />
-      {formik.errors.year && formik.touched.year && <p>{formik.errors.year}</p>}
+      {formik.errors.year && formik.touched.year && <p className='text-red-600 font-medium ml-3'>{formik.errors.year}</p>}
       <input
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
@@ -103,12 +103,12 @@ export default function NewShopForm() {
         id='image'
         type='text'
         placeholder='Image URL'
-        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black'
+        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mt-2 placeholder:text-black'
       />
       {formik.errors.image && formik.touched.image && (
-        <p>{formik.errors.image}</p>
+        <p className='text-red-600 font-medium ml-3'>{formik.errors.image}</p>
       )}
-      <button type='submit' className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-6 uppercase hover:bg-primary hover:border-primary hover:text-white'>Create Shop</button>
+      <button type='submit' className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mt-2 mb-6 uppercase hover:bg-primary hover:border-primary hover:text-white'>Create Shop</button>
     </form>
   );
 }

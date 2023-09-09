@@ -56,29 +56,29 @@ export default function Login() {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.email}
-          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black'
+          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent  placeholder:text-black'
           id='email'
           type='text'
           placeholder='Email'
         />
       {formik.errors.email && formik.touched.email && (
-        <p>{formik.errors.email}</p>
+        <p className='text-red-600 font-medium ml-3'>{formik.errors.email}</p>
       )}
         <input
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.password}
-          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black'
+          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mt-2 placeholder:text-black'
           id='password'
           type='password'
           placeholder='Password'
         />
       {formik.errors.password && formik.touched.password && (
-        <p>{formik.errors.password}</p>
+        <p className='text-red-600 font-medium ml-3'>{formik.errors.password}</p>
       )}
       <button
         type='submit'
-        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-3 uppercase hover:bg-primary hover:border-primary hover:text-white'
+        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mt-2 mb-3 uppercase hover:bg-primary hover:border-primary hover:text-white'
       >
         Log In
       </button>
