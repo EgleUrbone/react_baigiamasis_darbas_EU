@@ -97,7 +97,7 @@ export default function Header() {
           <NavLink
             to={'/add-shop'}
             className={
-              'font-semibold border-b-2 border-white mx-3 py-2 hover:border-b-2 hover:border-primary hover:text-primary'
+              'font-semibold mx-3 py-2 hover:border-b-2 hover:border-primary hover:text-primary'
             }
           >
             Add Shop
@@ -113,6 +113,7 @@ export default function Header() {
           ''
         )}
       </nav>
+        <hr className='-mt-[1px] w-[90%] ml-auto mr-auto' />
     </header>
   );
 }

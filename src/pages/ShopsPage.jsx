@@ -41,8 +41,10 @@ export default function ShopsPage() {
 
   return (
     <div className='mt-[130px]'>
-      {isLoading ? <p className='text-center mt-2'>Loading...</p> : null}
-      {shopsArr.length === 0 && <p>There are no shops to view..</p>}
+      <h1 className='font-header text-2xl mb-4 mt-2 tracking-wide text-center
+      '>Check our Shops</h1>
+      {isLoading ? <p className='text-center mt-2 mb-2'>Loading...</p> : null}
+      {shopsArr.length === 0 && <p className='text-center mt-2'>There are no shops to view..</p>}
       <ShopCardList list={shopsArr} />
     </div>
   );

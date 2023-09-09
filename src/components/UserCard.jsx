@@ -8,8 +8,8 @@ export default function UserCard() {
   console.log()
 
   return (
-    <div>
-      <h2>{ctx.email}</h2>
+    <div className='flex flex-col items-center mb-7 ml-auto mr-auto w-[370px]'>
+      <h3 className='bg-black px-2 py-1 text-white inline-block mb-2'>{ctx.email}</h3>
       <UserProfileUpdateForm />
     </div>
   );

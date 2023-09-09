@@ -48,11 +48,10 @@ export default function UserProfileUpdateForm() {
 console.log(auth.currentUser)
 
   return (
-    <div>
-
-    <h2>{displayName}</h2>
-    <img src={photo} alt='' />
-    <form onSubmit={formik.handleSubmit}>
+    <div className='flex flex-col items-center mb-7 ml-auto mr-auto w-[370px]'>
+    <h2 className='bg-black px-2 py-1 text-white text-lg inline-block mb-4'>{displayName}</h2>
+    <img className='rounded-full border-4 p-2 border-primary w-60 h-60 object-contain mb-7' src={photo} alt='' />
+    <form className='w-full' onSubmit={formik.handleSubmit}>
       <input
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
@@ -60,6 +59,7 @@ console.log(auth.currentUser)
         type='text'
         placeholder='displayname'
         id='displayName'
+        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black'
       />
       {formik.errors.displayName && formik.touched.displayName && (
         <p>{formik.errors.displayName}</p>
@@ -71,11 +71,12 @@ console.log(auth.currentUser)
         type='text'
         placeholder='photo url'
         id='photo'
+        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black'
       />
       {formik.errors.photo && formik.touched.photo && (
         <p>{formik.errors.photo}</p>
       )}
-      <button className='' type='submit'>
+      <button  className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-6 uppercase hover:bg-primary hover:border-primary hover:text-white' type='submit'>
         Update profile
       </button>
     </form>
