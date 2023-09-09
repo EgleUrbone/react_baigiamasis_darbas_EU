@@ -14,7 +14,7 @@ function App() {
   const ctx = useAuth();
 
   return (
-    <div>
+    <div className='min-h-screen flex flex-col'>
       <Toaster />
       <Header />
 
@@ -46,7 +46,11 @@ function App() {
         <Route
           path='/user-profile'
           element={
-            ctx.isUserLoggedIn ? <UserProfilePage /> : <Navigate to={'/login'} />
+            ctx.isUserLoggedIn ? (
+              <UserProfilePage />
+            ) : (
+              <Navigate to={'/login'} />
+            )
           }
         />
         <Route
