@@ -5,6 +5,7 @@ import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../../firebase/firebase';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import MainBtn from '../UI/MainBtn';
 
 export default function NewShopForm() {
   const ctx = useAuth();
@@ -108,7 +109,7 @@ export default function NewShopForm() {
       {formik.errors.image && formik.touched.image && (
         <p className='text-red-600 font-medium ml-3'>{formik.errors.image}</p>
       )}
-      <button type='submit' className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mt-2 mb-6 uppercase hover:bg-primary hover:border-primary hover:text-white'>Create Shop</button>
+      <MainBtn type={'submit'} text={'create shop'} mt />
     </form>
   );
 }

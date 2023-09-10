@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { auth, db } from '../../firebase/firebase';
 import toast from 'react-hot-toast';
+import MainBtn from '../UI/MainBtn';
 
 export default function AddComment(props) {
   const formik = useFormik({
@@ -52,12 +53,7 @@ export default function AddComment(props) {
        {formik.errors.text && formik.touched.text && (
         <p className='text-red-600 font-medium ml-3'>{formik.errors.text}</p>
       )}
-      <button
-        type='submit'
-        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-6 uppercase hover:bg-primary hover:border-primary hover:text-white'
-      >
-        Post
-      </button>
+      <MainBtn type={'submit'} text={'post it'} />
     </form>
   );
 }
