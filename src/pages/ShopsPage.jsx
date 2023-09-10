@@ -3,12 +3,13 @@ import { useEffect, useState } from 'react';
 import { db } from '../firebase/firebase';
 import ShopCardList from '../components/shops/ShopCardList';
 import { IoCalendarNumberOutline } from 'react-icons/io5';
-import { TbCircleLetterA } from 'react-icons/tb';
+import { TbCircleLetterA, TbCircleLetterZ } from 'react-icons/tb';
 
 export default function ShopsPage() {
   const [shopsArr, setShopsArr] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [sortedByYear, setSortedByYear] = useState([]);
+  const [sortedByName, setSortedByName] = useState([]);
 
   // console.log('shopsArr ===', shopsArr);
 
@@ -41,12 +42,28 @@ export default function ShopsPage() {
     }, 1000);
   }, []);
 
-  function sortArray() {
+  function sortArrayByYear() {
     const sorted = [...shopsArr];
     shopsArr.sort((a, b) => {
       return a.year - b.year;
     });
     setSortedByYear(sorted);
+  }
+
+  function sortArrayByName() {
+    const sorted = [...shopsArr];
+    shopsArr.sort((a, b) => {
+      return a.shopname.localeCompare(b.shopname);
+    });
+    setSortedByName(sorted);
+  }
+
+  function sortArrayByNameFromEnd() {
+    const sorted = [...shopsArr];
+    shopsArr.sort((a, b) => {
+      return b.shopname.localeCompare(a.shopname);
+    });
+    setSortedByName(sorted);
   }
 
   return (
@@ -58,11 +75,14 @@ export default function ShopsPage() {
         Check out our Shops
       </h1>
       <section>
-        <button onClick={sortArray}>
+        <button onClick={sortArrayByYear}>
           <IoCalendarNumberOutline />
         </button>
-        <button>
+        <button onClick={sortArrayByName}>
           <TbCircleLetterA />
+        </button>
+        <button onClick={sortArrayByNameFromEnd}>
+          <TbCircleLetterZ />
         </button>
       </section>
       {isLoading ? <p className='text-center mt-2 mb-2'>Loading...</p> : null}
