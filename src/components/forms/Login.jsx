@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
+import MainBtn from '../UI/MainBtn';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -76,12 +77,7 @@ export default function Login() {
       {formik.errors.password && formik.touched.password && (
         <p className='text-red-600 font-medium ml-3'>{formik.errors.password}</p>
       )}
-      <button
-        type='submit'
-        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mt-2 mb-3 uppercase hover:bg-primary hover:border-primary hover:text-white'
-      >
-        Log In
-      </button>
+      <MainBtn type={'submit'} text={'log in'} mt />
     </form>
   );
 }

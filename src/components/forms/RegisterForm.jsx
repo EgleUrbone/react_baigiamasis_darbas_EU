@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import toast from 'react-hot-toast';
 import * as Yup from 'yup';
 import { ref } from 'yup';
+import MainBtn from '../UI/MainBtn';
 
 export default function RegisterForm() {
   const formik = useFormik({
@@ -87,12 +88,7 @@ export default function RegisterForm() {
       {formik.errors.password2 && formik.touched.password2 && (
         <p className='text-red-600 font-medium ml-3'>{formik.errors.password2}</p>
       )}
-      <button
-        type='submit'
-        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mt-2 mb-10 uppercase hover:bg-primary hover:border-primary hover:text-white'
-      >
-        Register
-      </button>
+      <MainBtn type={'submit'} text={'register'} mt />
     </form>
   );
 }
