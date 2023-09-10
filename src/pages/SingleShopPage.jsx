@@ -32,23 +32,23 @@ export default function SingleShopPage() {
   }, []);
 
   return (
-    <li className='flex flex-col items-center mb-7 ml-auto mr-auto w-[370px] cursor-pointer mt-[130px]'>
-      <img
-        className='w-[370px] h-[450px] object-cover rounded-2xl mb-6'
-        src={currentShop.image}
-        alt='shop image'
-      />
-      <div>
-        <h2 className='py-1  mb-2 uppercase font-header text-3xl tracking-wider'>
-          {currentShop.shopname}
-        </h2>
-        {/* <p>{props.description}</p>
-      <p>{props.town}</p> */}
-        <p className='bg-black px-2 py-1 text-white inline-block mb-2'>
-          {currentShop.year}, {currentShop.town}
-        </p>
-        <p className='mb-3'>{currentShop.description}</p>
-        <hr className='mb-7' />
+    <li className='flex flex-col items-center max-w-[1400px] mb-7 ml-auto mr-auto w-[370px] cursor-pointer mt-[130px] lg:w-[500px] xl:w-[800px] xl:mt-[150px] 2xl:mt-[180px]'>
+      <div className='2xl:flex 2xl:flex-row 2xl:w-[1400px] 2xl:gap-8 2xl:mb-10'>
+        <img
+          className='w-[370px] h-[450px] object-cover rounded-2xl mb-6 lg:w-[500px] xl:w-[800px] 2xl:w-[800px]'
+          src={currentShop.image}
+          alt='shop image'
+        />
+        <div className='2xl:w-[50%]'>
+          <h2 className='py-1  mb-2 uppercase font-header text-3xl tracking-wider xl:text-4xl 2xl:pt-0'>
+            {currentShop.shopname}
+          </h2>
+          <p className='bg-black px-2 py-1 text-white inline-block mb-2 xl:mb-4'>
+            {currentShop.year}, {currentShop.town}
+          </p>
+          <p className='mb-3'>{currentShop.description}</p>
+          <hr className='mb-7 2xl:mb-12' />
+        </div>
       </div>
       <SlidingCards />
       <CommentsList shopId={shopId} />

@@ -39,7 +39,7 @@ export default function AddComment(props) {
   }
 
   return (
-    <form onSubmit={formik.handleSubmit} className='w-full mt-12'>
+    <form onSubmit={formik.handleSubmit} className='w-full mt-12 xl:mt-0'>
       <textarea
         onChange={formik.handleChange}
         value={formik.values.text}

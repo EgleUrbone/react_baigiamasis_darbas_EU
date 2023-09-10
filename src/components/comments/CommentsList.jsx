@@ -34,9 +34,9 @@ export default function CommentsList(props) {
   // console.log('currentShopId ===', currentShopId);
 
   return (
-    <div className='w-full'>
+    <div className='w-full xl:flex gap-8 2xl:mb-8'>
       <AddCommentForm shopId={currentShopId} />
-      <ul className='w-full'>
+      <ul className='w-full '>
         {commentsArr.map((cObj) => (
           <SingleComment key={cObj.id} {...cObj} />
         ))}
