@@ -34,7 +34,7 @@ export default function Footer() {
 
   return (
     <footer className='bg-primary py-12 px-6 mt-auto '>
-      <div className='max-w-7xl ml-auto mr-auto'>
+      <div className='max-w-[1400px] ml-auto mr-auto'>
       <h2 className='text-2xl mb-6'>The Daily Chirp Newsletter</h2>
       <p className='mb-6'>
         Join 225,000 subscribers who start their day with Lorem ipsum dolor sit

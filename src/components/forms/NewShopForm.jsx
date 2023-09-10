@@ -51,7 +51,7 @@ export default function NewShopForm() {
   }
 
   return (
-    <form onSubmit={formik.handleSubmit} className='flex flex-col '>
+    <form onSubmit={formik.handleSubmit} className='flex flex-col'>
       <input
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
