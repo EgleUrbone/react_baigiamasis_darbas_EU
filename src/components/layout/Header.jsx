@@ -3,6 +3,7 @@ import { useAuth } from '../../store/AuthProvider';
 import { getAuth, signOut } from 'firebase/auth';
 import { toast } from 'react-hot-toast';
 import { useState } from 'react';
+import { auth } from '../../firebase/firebase';
 
 export default function Header() {
   const [shadow, setShadow] = useState(false);
@@ -106,8 +107,8 @@ export default function Header() {
           )}
           {ctx.isUserLoggedIn ? (
             <img
-              src='/img/bird-user.png'
-              className='w-7 cursor-pointer hover:border-[2px] hover:border-primary hover:rounded-full'
+              src={auth.currentUser.photoURL ? auth.currentUser.photoURL : '/img/bird-user.png'}
+              className='w-7 h-7 object-cover cursor-pointer hover:border-[2px] hover:border-primary hover:rounded-full rounded-full'
               onClick={() => navigate('/user-profile')}
             />
           ) : (
