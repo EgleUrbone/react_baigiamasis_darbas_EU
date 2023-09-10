@@ -8,8 +8,7 @@ import { TbCircleLetterA, TbCircleLetterZ } from 'react-icons/tb';
 export default function ShopsPage() {
   const [shopsArr, setShopsArr] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [sortedByYear, setSortedByYear] = useState([]);
-  const [sortedByName, setSortedByName] = useState([]);
+const [sortedArr, setSortedArr] = useState([])
 
   // console.log('shopsArr ===', shopsArr);
 
@@ -44,26 +43,26 @@ export default function ShopsPage() {
 
   function sortArrayByYear() {
     const sorted = [...shopsArr];
-    shopsArr.sort((a, b) => {
+    sorted.sort((a, b) => {
       return a.year - b.year;
     });
-    setSortedByYear(sorted);
+    setSortedArr(sorted);
   }
 
   function sortArrayByName() {
     const sorted = [...shopsArr];
-    shopsArr.sort((a, b) => {
+    sorted.sort((a, b) => {
       return a.shopname.localeCompare(b.shopname);
     });
-    setSortedByName(sorted);
+    setSortedArr(sorted);
   }
 
   function sortArrayByNameFromEnd() {
     const sorted = [...shopsArr];
-    shopsArr.sort((a, b) => {
+    sorted.sort((a, b) => {
       return b.shopname.localeCompare(a.shopname);
     });
-    setSortedByName(sorted);
+    setSortedArr(sorted);
   }
 
   return (
@@ -89,7 +88,7 @@ export default function ShopsPage() {
       {shopsArr.length === 0 && (
         <p className='text-center mt-2'>There are no shops to view..</p>
       )}
-      <ShopCardList list={shopsArr} />
+      <ShopCardList list={sortedArr.length ? sortedArr : shopsArr} />
     </div>
   );
 }
