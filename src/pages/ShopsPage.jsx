@@ -8,7 +8,7 @@ import { TbCircleLetterA, TbCircleLetterZ } from 'react-icons/tb';
 export default function ShopsPage() {
   const [shopsArr, setShopsArr] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-const [sortedArr, setSortedArr] = useState([])
+  const [sortedArr, setSortedArr] = useState([]);
 
   // console.log('shopsArr ===', shopsArr);
 
@@ -41,28 +41,48 @@ const [sortedArr, setSortedArr] = useState([])
     }, 1000);
   }, []);
 
-  function sortArrayByYear() {
-    const sorted = [...shopsArr];
-    sorted.sort((a, b) => {
-      return a.year - b.year;
-    });
-    setSortedArr(sorted);
-  }
+  // function sortArrayByYear() {
+  //   const sorted = [...shopsArr];
+  //   sorted.sort((a, b) => {
+  //     return a.year - b.year;
+  //   });
+  //   setSortedArr(sorted);
+  // }
 
-  function sortArrayByName() {
-    const sorted = [...shopsArr];
-    sorted.sort((a, b) => {
-      return a.shopname.localeCompare(b.shopname);
-    });
-    setSortedArr(sorted);
-  }
+  // function sortArrayByName() {
+  //   const sorted = [...shopsArr];
+  //   sorted.sort((a, b) => {
+  //     return a.shopname.localeCompare(b.shopname);
+  //   });
+  //   setSortedArr(sorted);
+  // }
 
-  function sortArrayByNameFromEnd() {
-    const sorted = [...shopsArr];
-    sorted.sort((a, b) => {
-      return b.shopname.localeCompare(a.shopname);
-    });
-    setSortedArr(sorted);
+  // function sortArrayByNameFromEnd() {
+  //   const sorted = [...shopsArr];
+  //   sorted.sort((a, b) => {
+  //     return b.shopname.localeCompare(a.shopname);
+  //   });
+  //   setSortedArr(sorted);
+  // }
+
+  function sortBySelect(event) {
+    const option = event.target.value;
+    console.log(`rikiuoja pagal ${option}`);
+    let sortedByOption;
+    if (option === 'year') {
+      sortedByOption = [...shopsArr].sort(
+        (aObj, bObj) => bObj.year - aObj.year
+      );
+    } else if (option === 'nameA') {
+      sortedByOption = [...shopsArr].sort((aObj, bObj) =>
+        aObj.shopname.localeCompare(bObj.shopname)
+      );
+    } else if (option === 'nameZ') {
+      sortedByOption = [...shopsArr].sort((aObj, bObj) =>
+        bObj.shopname.localeCompare(aObj.shopname)
+      );
+    }
+    setSortedArr(sortedByOption);
   }
 
   return (
@@ -73,7 +93,15 @@ const [sortedArr, setSortedArr] = useState([])
       >
         Check out our Shops
       </h1>
-      <section>
+      <select onChange={sortBySelect} className='selectField'>
+        <option disabled value=''>
+          --
+        </option>
+        <option value='year'>Year</option>
+        <option value='nameA'>Name A-Z</option>
+        <option value='nameZ'>Name Z-A</option>
+      </select>
+      {/* <section>
         <button onClick={sortArrayByYear}>
           <IoCalendarNumberOutline />
         </button>
@@ -83,11 +111,12 @@ const [sortedArr, setSortedArr] = useState([])
         <button onClick={sortArrayByNameFromEnd}>
           <TbCircleLetterZ />
         </button>
-      </section>
+      </section> */}
       {isLoading ? <p className='text-center mt-2 mb-2'>Loading...</p> : null}
       {shopsArr.length === 0 && (
         <p className='text-center mt-2'>There are no shops to view..</p>
       )}
+      {/* <ShopCardList list={shopsArr} /> */}
       <ShopCardList list={sortedArr.length ? sortedArr : shopsArr} />
     </div>
   );
