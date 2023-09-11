@@ -29,6 +29,7 @@ export default function Header() {
         toast.success('You have logged out');
         // Sign-out successful.
         console.log('logged out');
+        navigate('/login');
       })
       .catch((error) => {
         // An error happened.
@@ -107,7 +108,11 @@ export default function Header() {
           )}
           {ctx.isUserLoggedIn ? (
             <img
-              src={auth.currentUser.photoURL ? auth.currentUser.photoURL : '/img/bird-user.png'}
+              src={
+                auth.currentUser?.photoURL
+                  ? auth.currentUser.photoURL
+                  : '/img/bird-user.png'
+              }
               className='w-7 h-7 object-cover cursor-pointer hover:border-[2px] hover:border-primary hover:rounded-full rounded-full'
               onClick={() => navigate('/user-profile')}
             />

@@ -7,15 +7,14 @@ import { auth } from '../../firebase/firebase';
 export default function UserProfileUpdateForm() {
   const formik = useFormik({
     initialValues: {
-      displayName: auth.currentUser.displayName,
-      photo: auth.currentUser.photoURL,
+      displayName: auth.currentUser.displayName ? auth.currentUser.displayName : '' ,
+      photo: auth.currentUser.photoURL ? auth.currentUser.photoURL : '',
     },
     validationSchema: Yup.object({
       displayName: Yup.string().trim().min(2).max(30),
       photo: Yup.string().trim().min(5),
     }),
     onSubmit: (values) => {
-      console.log('values ===', values);
       updatePofileFB(values.displayName, values.photo);
     },
   });
