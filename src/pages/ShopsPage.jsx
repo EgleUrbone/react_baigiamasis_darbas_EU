@@ -2,8 +2,6 @@ import { collection, getDocs } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { db } from '../firebase/firebase';
 import ShopCardList from '../components/shops/ShopCardList';
-import { IoCalendarNumberOutline } from 'react-icons/io5';
-import { TbCircleLetterA, TbCircleLetterZ } from 'react-icons/tb';
 
 export default function ShopsPage() {
   const [shopsArr, setShopsArr] = useState([]);
@@ -41,30 +39,6 @@ export default function ShopsPage() {
     }, 1000);
   }, []);
 
-  // function sortArrayByYear() {
-  //   const sorted = [...shopsArr];
-  //   sorted.sort((a, b) => {
-  //     return a.year - b.year;
-  //   });
-  //   setSortedArr(sorted);
-  // }
-
-  // function sortArrayByName() {
-  //   const sorted = [...shopsArr];
-  //   sorted.sort((a, b) => {
-  //     return a.shopname.localeCompare(b.shopname);
-  //   });
-  //   setSortedArr(sorted);
-  // }
-
-  // function sortArrayByNameFromEnd() {
-  //   const sorted = [...shopsArr];
-  //   sorted.sort((a, b) => {
-  //     return b.shopname.localeCompare(a.shopname);
-  //   });
-  //   setSortedArr(sorted);
-  // }
-
   function sortBySelect(event) {
     const option = event.target.value;
     console.log(`rikiuoja pagal ${option}`);
@@ -88,30 +62,26 @@ export default function ShopsPage() {
   return (
     <div className='mt-[130px] lg:ml-auto lg:mr-auto'>
       <h1
-        className='font-header text-2xl mb-4 mt-2 tracking-wide text-center lg:text-[30px] lg:mb-14 lg:mt-6 2xl:text-[36px]
+        className='font-header text-2xl mb-6 mt-4 tracking-wide text-center lg:text-[30px] lg:mb-14 lg:mt-6 2xl:text-[36px]
       '
       >
         Check out our Shops
       </h1>
-      <select onChange={sortBySelect} className='selectField'>
-        <option disabled value=''>
-          --
-        </option>
-        <option value='year'>Year</option>
-        <option value='nameA'>Name A-Z</option>
-        <option value='nameZ'>Name Z-A</option>
-      </select>
-      {/* <section>
-        <button onClick={sortArrayByYear}>
-          <IoCalendarNumberOutline />
-        </button>
-        <button onClick={sortArrayByName}>
-          <TbCircleLetterA />
-        </button>
-        <button onClick={sortArrayByNameFromEnd}>
-          <TbCircleLetterZ />
-        </button>
-      </section> */}
+
+      <section className='ml-auto mr-auto text-center lg:flex lg:justify-between lg:mb-2'>
+        <p className='uppercase text-sm mb-2'>
+          Showing all {shopsArr.length} results
+        </p>
+        <select onChange={sortBySelect} className='mb-6'>
+          <option disabled value=''>
+            --
+          </option>
+          <option value='year'>Sort by year</option>
+          <option value='nameA'>Sort by shop name A-Z</option>
+          <option value='nameZ'>Sort by shop name Z-A</option>
+        </select>
+      </section>
+
       {isLoading ? <p className='text-center mt-2 mb-2'>Loading...</p> : null}
       {shopsArr.length === 0 && (
         <p className='text-center mt-2'>There are no shops to view..</p>
