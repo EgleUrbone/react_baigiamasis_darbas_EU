@@ -16,7 +16,7 @@ export default function SingleShopPage() {
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        console.log('Document data:', docSnap.data());
+        // console.log('Document data:', docSnap.data());
         setCurrentShop(docSnap.data());
       } else {
         // docSnap.data() will be undefined in this case
@@ -32,10 +32,10 @@ export default function SingleShopPage() {
   }, []);
 
   return (
-    <li className='flex flex-col items-center max-w-[1400px] mb-7 ml-auto mr-auto w-[370px] cursor-pointer mt-[130px] lg:w-[500px] xl:w-[800px] xl:mt-[150px] 2xl:mt-[180px]'>
+    <li className='flex flex-col items-center max-w-[1400px] mb-7 ml-auto mr-auto w-[370px] cursor-pointer mt-[130px] md:w-[450px] lg:w-[500px] xl:w-[800px] xl:mt-[150px] 2xl:mt-[180px]'>
       <div className='2xl:flex 2xl:flex-row 2xl:w-[1400px] 2xl:gap-8 2xl:mb-10'>
         <img
-          className='w-[370px] h-[450px] object-cover rounded-2xl mb-6 lg:w-[500px] xl:w-[800px] 2xl:w-[800px]'
+          className='w-[370px] h-[450px] object-cover rounded-2xl mb-6 md:w-[450px] lg:w-[500px] xl:w-[800px] 2xl:w-[800px]'
           src={currentShop.image}
           alt='shop image'
         />
