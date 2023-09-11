@@ -8,7 +8,6 @@ export default function ShopsPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [sortedArr, setSortedArr] = useState([]);
 
-
   async function getAllShopsFB() {
     try {
       const querySnapshot = await getDocs(collection(db, 'shops'));

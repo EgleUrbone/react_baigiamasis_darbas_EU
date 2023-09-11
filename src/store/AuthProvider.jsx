@@ -20,7 +20,7 @@ export default function AuthProvider(props) {
     isUserLoggedIn: isUserLoggedIn,
     userUid: userUid,
   };
-  // console.log('ctx ===', ctx);
+  console.log('ctx ===', ctx);
 
   useEffect(() => {
     const auth = getAuth();
