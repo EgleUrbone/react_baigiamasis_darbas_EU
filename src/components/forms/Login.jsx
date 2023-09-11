@@ -36,7 +36,7 @@ export default function Login() {
         toast.success('Login successful, hello!');
         // Signed in
         const user = userCredential.user;
-        console.log('user logged in ===', user);
+        // console.log('user logged in ===', user);
         navigate('/shops');
         // ...
       })

@@ -83,7 +83,7 @@ export default function ShopsPage() {
 
       {isLoading ? <p className='text-center mt-2 mb-2'>Loading...</p> : null}
       {shopsArr.length === 0 && (
-        <p className='text-center mt-2'>There are no shops to view..</p>
+        <p className='text-center mt-2'>There are no shops to view.. YET!</p>
       )}
       {/* <ShopCardList list={shopsArr} /> */}
       <ShopCardList list={sortedArr.length ? sortedArr : shopsArr} />
