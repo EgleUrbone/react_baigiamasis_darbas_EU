@@ -87,6 +87,16 @@ export default function Header() {
           )}
           {ctx.isUserLoggedIn && (
             <NavLink
+            to={'/add-shop'}
+            className={
+              'font-semibold mx-3 py-2 hover:border-b-2 hover:border-primary hover:text-primary'
+            }
+            >
+              Add Shop
+            </NavLink>
+          )}
+          {ctx.isUserLoggedIn && (
+            <NavLink
               onClick={logOutFB}
               to={'/login'}
               className={
@@ -94,16 +104,6 @@ export default function Header() {
               }
             >
               Log Out
-            </NavLink>
-          )}
-          {ctx.isUserLoggedIn && (
-            <NavLink
-              to={'/add-shop'}
-              className={
-                'font-semibold mx-3 py-2 hover:border-b-2 hover:border-primary hover:text-primary'
-              }
-            >
-              Add Shop
             </NavLink>
           )}
           {ctx.isUserLoggedIn ? (

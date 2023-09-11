@@ -60,7 +60,7 @@ export default function NewShopForm() {
         id='shopname'
         type='text'
         placeholder='Your shop name'
-        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent  placeholder:text-black'
+        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent  placeholder:text-gray-400'
       />
       {formik.errors.shopname && formik.touched.shopname && (
         <p className='text-red-600 font-medium ml-3'>{formik.errors.shopname}</p>
@@ -72,7 +72,7 @@ export default function NewShopForm() {
         id='description'
         type='text'
         placeholder='Tell us about your shop'
-        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mt-2 placeholder:text-black'
+        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mt-2 placeholder:text-gray-400'
       />
       {formik.errors.description && formik.touched.description && (
         <p className='text-red-600 font-medium ml-3'>{formik.errors.description}</p>
@@ -84,7 +84,7 @@ export default function NewShopForm() {
         id='town'
         type='text'
         placeholder='Shop location - town'
-        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mt-2 placeholder:text-black'
+        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mt-2 placeholder:text-gray-400'
       />
       {formik.errors.town && formik.touched.town && <p className='text-red-600 font-medium ml-3'>{formik.errors.town}</p>}
       <input
@@ -94,7 +94,7 @@ export default function NewShopForm() {
         id='year'
         type='number'
         placeholder='Starting year'
-        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mt-2 placeholder:text-black'
+        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mt-2 placeholder:text-gray-400'
       />
       {formik.errors.year && formik.touched.year && <p className='text-red-600 font-medium ml-3'>{formik.errors.year}</p>}
       <input
@@ -104,7 +104,7 @@ export default function NewShopForm() {
         id='image'
         type='text'
         placeholder='Image URL'
-        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mt-2 placeholder:text-black'
+        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mt-2 placeholder:text-gray-400'
       />
       {formik.errors.image && formik.touched.image && (
         <p className='text-red-600 font-medium ml-3'>{formik.errors.image}</p>
