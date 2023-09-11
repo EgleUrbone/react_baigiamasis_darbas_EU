@@ -25,8 +25,6 @@ export default function AddComment(props) {
   });
 
   let currentshopId = props.shopId;
-  console.log('currentshopId ===', currentshopId);
-
 
   async function createNewCommentFB(currentshopId, newComment) {
     try {

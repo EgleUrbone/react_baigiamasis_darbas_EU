@@ -62,9 +62,9 @@ function App() {
         <Route
           path='*'
           element={
-            <div>
-              <h1>404</h1>
-              <p>page not found</p>
+            <div className='text-center'>
+              <h1 className='font-header text-7xl'>404</h1>
+              <p className='text-2xl'>page not found</p>
             </div>
           }
         />

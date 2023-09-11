@@ -73,8 +73,8 @@ export default function ShopsPage() {
           Showing all {shopsArr.length} results
         </p>
         <select onChange={sortBySelect} className='mb-6'>
-          <option disabled value=''>
-            --
+          <option defaultValue={''} value=''>
+            Sort by
           </option>
           <option value='year'>Sort by year</option>
           <option value='nameA'>Sort by shop name A-Z</option>
