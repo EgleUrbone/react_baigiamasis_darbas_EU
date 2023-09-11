@@ -41,7 +41,7 @@ export default function Header() {
     <header
       className={
         shadow
-          ? 'fixed top-0 w-full bg-white z-50 drop-shadow-2xl '
+          ? 'fixed top-0 w-full bg-white z-50 drop-shadow-2xl'
           : 'fixed top-0 w-full bg-white z-50'
       }
     >

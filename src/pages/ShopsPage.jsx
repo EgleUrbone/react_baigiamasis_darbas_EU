@@ -8,7 +8,6 @@ export default function ShopsPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [sortedArr, setSortedArr] = useState([]);
 
-  // console.log('shopsArr ===', shopsArr);
 
   async function getAllShopsFB() {
     try {

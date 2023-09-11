@@ -54,18 +54,19 @@ export default function Footer() {
           placeholder='Email address'
           className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black sm:mb-0 xl:mb-0'
         />
-        {formik.errors.newsemail && formik.touched.newsemail && (
-          <p className='text-red-600 font-medium ml-3'>
-            {formik.errors.newsemail}
-          </p>
-        )}
+       
         <button
           type='submit'
-          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-10 sm:mb-0 sm:w-40 xl:mb-0 xl:w-40'
+          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-10 sm:mb-0 sm:w-40 xl:mb-0 xl:w-40 hover:bg-white hover:border-white'
         >
           JOIN
         </button>
       </form>
+       {formik.errors.newsemail && formik.touched.newsemail && (
+          <p className='text-red-600 font-medium ml-3 -mt-8 mb-8'>
+            {formik.errors.newsemail}
+          </p>
+        )}
       <div className='lg:flex justify-between'>
         <nav className='mb-6'>
           <Link to={'/shops'} className='pr-2'>

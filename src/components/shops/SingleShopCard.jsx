@@ -35,8 +35,6 @@ export default function SingleShopCard(props) {
         <h2 className='bg-black px-2 py-1 text-white mb-2 uppercase lg:text-xl'>
           {props.shopname}
         </h2>
-        {/* <p>{props.description}</p>
-      <p>{props.town}</p> */}
         <p className='bg-black px-2 py-1 text-white inline-block'>
           {props.year}
         </p>
