@@ -44,7 +44,7 @@ export default function AddComment(props) {
         value={formik.values.text}
         id='text'
         type='text'
-        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black'
+        className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-gray-400'
         rows='4'
         placeholder='Leave a comment'
       ></textarea>

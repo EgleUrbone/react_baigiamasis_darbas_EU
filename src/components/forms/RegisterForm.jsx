@@ -50,13 +50,13 @@ export default function RegisterForm() {
   return (
     <form
       onSubmit={formik.handleSubmit}
-      className='max-w-sm flex flex-col gap-1 ml-auto mr-auto mt-6'
+      className='max-w-sm flex flex-col gap-1 ml-auto mr-auto mt-6 '
     >
         <input
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.email}
-          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent  placeholder:text-black'
+          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent  placeholder:text-gray-400'
           id='email'
           type='text'
           placeholder='Email'
@@ -68,7 +68,7 @@ export default function RegisterForm() {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.password}
-          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mt-2 placeholder:text-black'
+          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mt-2 placeholder:text-gray-400'
           id='password'
           type='password'
           placeholder='Password'
@@ -80,7 +80,7 @@ export default function RegisterForm() {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.password2}
-          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mt-2 placeholder:text-black'
+          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mt-2 placeholder:text-gray-400'
           id='password2'
           type='password'
           placeholder='Repeat password'

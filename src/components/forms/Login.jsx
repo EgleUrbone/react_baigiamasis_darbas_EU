@@ -57,7 +57,7 @@ export default function Login() {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.email}
-          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent  placeholder:text-black'
+          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent  placeholder:text-gray-400'
           id='email'
           type='text'
           placeholder='Email'
@@ -69,7 +69,7 @@ export default function Login() {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.password}
-          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mt-2 placeholder:text-black'
+          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mt-2 placeholder:text-gray-400'
           id='password'
           type='password'
           placeholder='Password'
