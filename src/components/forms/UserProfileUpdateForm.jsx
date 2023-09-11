@@ -63,7 +63,7 @@ export default function UserProfileUpdateForm() {
           className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black'
         />
         {formik.errors.displayName && formik.touched.displayName && (
-          <p>{formik.errors.displayName}</p>
+          <p className='text-red-600 font-medium ml-3'>{formik.errors.displayName}</p>
         )}
         <input
           onChange={formik.handleChange}
@@ -75,7 +75,7 @@ export default function UserProfileUpdateForm() {
           className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-2 placeholder:text-black'
         />
         {formik.errors.photo && formik.touched.photo && (
-          <p>{formik.errors.photo}</p>
+          <p className='text-red-600 font-medium ml-3'>{formik.errors.photo}</p>
         )}
         <button
           className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-6 uppercase hover:bg-primary hover:border-primary hover:text-white'
