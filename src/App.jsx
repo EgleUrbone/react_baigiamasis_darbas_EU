@@ -15,7 +15,16 @@ function App() {
 
   return (
     <div className='min-h-screen flex flex-col'>
-      <Toaster />
+      <Toaster
+        toastOptions={{
+          success: {
+            iconTheme: {
+              primary: 'rgb(235, 169, 55)',
+              secondary: 'white',
+            },
+          },
+        }}
+      />
       <Header />
 
       <Routes>
