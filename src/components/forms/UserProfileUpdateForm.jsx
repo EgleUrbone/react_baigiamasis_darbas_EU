@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import toast from 'react-hot-toast';
 import * as Yup from 'yup';
 import { auth } from '../../firebase/firebase';
+import MainBtn from '../UI/MainBtn';
 
 export default function UserProfileUpdateForm() {
   const formik = useFormik({
@@ -77,12 +78,7 @@ export default function UserProfileUpdateForm() {
         {formik.errors.photo && formik.touched.photo && (
           <p className='text-red-600 font-medium ml-3'>{formik.errors.photo}</p>
         )}
-        <button
-          className='border border-black rounded-3xl py-2 px-3 block w-full bg-transparent mb-6 uppercase hover:bg-primary hover:border-primary hover:text-white'
-          type='submit'
-        >
-          Update profile
-        </button>
+        <MainBtn type={'submit'} text={'update profile'} />
       </form>
     </div>
   );
