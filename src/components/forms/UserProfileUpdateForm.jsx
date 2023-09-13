@@ -37,7 +37,7 @@ export default function UserProfileUpdateForm() {
         // ...
       });
   }
-  console.log(auth.currentUser);
+  // console.log(auth.currentUser);
 
   return (
     <div className='flex flex-col items-center mb-7 ml-auto mr-auto w-[370px]'>

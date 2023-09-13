@@ -34,7 +34,7 @@ export default function ShopsPage() {
     setTimeout(() => {
       console.log('This will run after 1 second!');
       getAllShopsFB();
-    }, 1000);
+    }, 2000);
   }, []);
 
   function sortBySelect(event) {

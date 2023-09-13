@@ -4,9 +4,11 @@ import { getAuth, signOut } from 'firebase/auth';
 import { toast } from 'react-hot-toast';
 import { useState } from 'react';
 import { auth } from '../../firebase/firebase';
+import { CiMenuBurger } from 'react-icons/ci';
 
 export default function Header() {
   const [shadow, setShadow] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -37,6 +39,8 @@ export default function Header() {
       });
   }
 
+
+
   return (
     <header
       className={
@@ -46,15 +50,34 @@ export default function Header() {
       }
     >
       <div className='max-w-[1400px] ml-auto mr-auto'>
-        <Link to={'/login'}>
-          <img
-            className='w-20 m-4 cursor-pointer 2xl:w-24 xl:ml-0 xl:mr-auto ml:ml-auto'
-            src='/img/logo-chirp-02.png'
-            alt='logo'
+        <div className='flex justify-between items-center'>
+          <Link to={'/login'}>
+            <img
+              className='w-20 m-4 cursor-pointer 2xl:w-24 xl:ml-0 xl:mr-auto ml:ml-auto'
+              src='/img/logo-chirp-02.png'
+              alt='logo'
+            />
+          </Link>
+          <CiMenuBurger
+            className='lg:hidden block text-xl m-4'
+            onClick={() => setIsMobileOpen(!isMobileOpen)}
           />
-        </Link>
-
-        <nav className='flex justify-center items-center lg:text-lg xl:gap-2'>
+        </div>
+        {/* <div
+          className={`lg:block ${
+            isMobileOpen
+              ? 'flex flex-col absolute top-9 bg-slate-200 right-0'
+              : 'hidden'
+          }`}
+        > */}
+        {/* <nav className='flex justify-center items-center lg:text-lg xl:gap-2'> */}
+        <nav
+          className={`${
+            isMobileOpen
+              ? 'flex flex-col absolute top-9 border rounded-lg bg-white right-0'
+              : 'lg:flex lg:justify-center lg:items-center lg:text-lg xl:gap-2 hidden'
+          }`}
+        >
           {!ctx.isUserLoggedIn && (
             <NavLink
               to={'/login'}
@@ -87,10 +110,10 @@ export default function Header() {
           )}
           {ctx.isUserLoggedIn && (
             <NavLink
-            to={'/add-shop'}
-            className={
-              'font-semibold mx-3 py-2 hover:border-b-2 hover:border-primary hover:text-primary'
-            }
+              to={'/add-shop'}
+              className={
+                'font-semibold mx-3 py-2 hover:border-b-2 hover:border-primary hover:text-primary'
+              }
             >
               Add Shop
             </NavLink>
@@ -113,13 +136,19 @@ export default function Header() {
                   ? auth.currentUser.photoURL
                   : '/img/bird-user.png'
               }
-              className='w-7 h-7 object-cover cursor-pointer hover:border-[2px] hover:border-primary hover:rounded-full rounded-full'
+              className={`${
+                isMobileOpen
+                  ? 'ml-3 mb-3 mt-2 w-7 h-7 object-cover cursor-pointer hover:border-[2px] hover:border-primary hover:rounded-full rounded-full inline-block'
+                  : 'w-7 h-7 object-cover cursor-pointer hover:border-[2px] hover:border-primary hover:rounded-full rounded-full inline-block'
+              }`}
               onClick={() => navigate('/user-profile')}
             />
           ) : (
             ''
           )}
+          <div className='lg:hidden block'></div>
         </nav>
+        {/* </div> */}
       </div>
       <hr className='-mt-[1px] w-[90%] ml-auto mr-auto' />
     </header>
