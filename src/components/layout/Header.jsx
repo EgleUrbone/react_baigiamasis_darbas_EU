@@ -40,7 +40,6 @@ export default function Header() {
   }
 
 
-
   return (
     <header
       className={
@@ -58,10 +57,9 @@ export default function Header() {
               alt='logo'
             />
           </Link>
-          <CiMenuBurger
-            className='lg:hidden block text-xl m-4'
-            onClick={() => setIsMobileOpen(!isMobileOpen)}
-          />
+          <button onClick={() => setIsMobileOpen(!isMobileOpen)}>
+            <CiMenuBurger className='lg:hidden block text-xl m-4' />
+          </button>
         </div>
         {/* <div
           className={`lg:block ${
