@@ -13,10 +13,14 @@ export default function RegisterForm() {
       password2: '',
     },
     validationSchema: Yup.object({
-      email: Yup.string().trim().email().matches(
-        /^([a-ząčęėįšųūA-ZĄČĘĖĮŠŲŪ0-9._%-]+@[a-ząčęėįšųūA-ZĄČĘĖĮŠŲŪ0-9.-]+\.[a-zA-Z]{2,})$/,
-        'Check if email is correct'
-      ).required(),
+      email: Yup.string()
+        .trim()
+        .email()
+        .matches(
+          /^([a-ząčęėįšųūA-ZĄČĘĖĮŠŲŪ0-9._%-]+@[a-ząčęėįšųūA-ZĄČĘĖĮŠŲŪ0-9.-]+\.[a-zA-Z]{2,})$/,
+          'Check if email is correct'
+        )
+        .required(),
       password: Yup.string().trim().min(6).max(255).required(),
       password2: Yup.string()
         .required('Please re-type your password')
@@ -24,7 +28,7 @@ export default function RegisterForm() {
     }),
     onSubmit: (values) => {
       console.log('values ===', values);
-      createNewUserFB(values.email, values.password)
+      createNewUserFB(values.email, values.password);
     },
   });
 
@@ -32,26 +36,27 @@ export default function RegisterForm() {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        toast.success('Registration was successful')
+        toast.success('Registration was successful');
         // Signed in
         const user = userCredential.user;
         console.log('new user ===', user);
         // ...
       })
       .catch((error) => {
-        toast.error('Registration failed, check email or password')
+        toast.error('Registration failed, check email or password');
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.warn('error regitrating === ', errorCode, errorMessage )
+        console.warn('error regitrating === ', errorCode, errorMessage);
         // ..
       });
   }
 
   return (
-    <form
-      onSubmit={formik.handleSubmit}
-      className='max-w-sm flex flex-col gap-1 ml-auto mr-auto mt-6 '
-    >
+    <div className='w-[95%] bg-gray-100 mb-16 md:w-[540px] py-8'>
+      <form
+        onSubmit={formik.handleSubmit}
+        className='max-w-sm flex flex-col gap-1 ml-auto mr-auto mt-6 w-full '
+      >
         <input
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
@@ -61,9 +66,9 @@ export default function RegisterForm() {
           type='text'
           placeholder='Email'
         />
-      {formik.errors.email && formik.touched.email && (
-        <p className='text-red-600 font-medium ml-3'>{formik.errors.email}</p>
-      )}
+        {formik.errors.email && formik.touched.email && (
+          <p className='text-red-600 font-medium ml-3'>{formik.errors.email}</p>
+        )}
         <input
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
@@ -73,9 +78,11 @@ export default function RegisterForm() {
           type='password'
           placeholder='Password'
         />
-      {formik.errors.password && formik.touched.password && (
-        <p className='text-red-600 font-medium ml-3'>{formik.errors.password}</p>
-      )}
+        {formik.errors.password && formik.touched.password && (
+          <p className='text-red-600 font-medium ml-3'>
+            {formik.errors.password}
+          </p>
+        )}
         <input
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
@@ -85,10 +92,13 @@ export default function RegisterForm() {
           type='password'
           placeholder='Repeat password'
         />
-      {formik.errors.password2 && formik.touched.password2 && (
-        <p className='text-red-600 font-medium ml-3'>{formik.errors.password2}</p>
-      )}
-      <MainBtn type={'submit'} text={'register'} mt />
-    </form>
+        {formik.errors.password2 && formik.touched.password2 && (
+          <p className='text-red-600 font-medium ml-3'>
+            {formik.errors.password2}
+          </p>
+        )}
+        <MainBtn type={'submit'} text={'register'} mt />
+      </form>
+    </div>
   );
 }

@@ -14,7 +14,7 @@ function App() {
   const ctx = useAuth();
 
   return (
-    <div className='min-h-screen flex flex-col'>
+    <div className='min-h-screen flex flex-col h-calc '>
       <Toaster
         toastOptions={{
           success: {
@@ -26,7 +26,6 @@ function App() {
         }}
       />
       <Header />
-
       <Routes>
         <Route
           path='/login'

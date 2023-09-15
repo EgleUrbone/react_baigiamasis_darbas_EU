@@ -5,7 +5,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-
+   
     extend: {
       fontFamily: {
         'rale': ['Raleway', 'sans-serif'],
@@ -16,6 +16,9 @@ export default {
       },
       screens: {
         'xl': '1440px',
+      },
+      height: {
+        'calc': 'calc(100vh - 1px)',
       },
     },
   },

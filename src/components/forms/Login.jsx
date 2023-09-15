@@ -51,7 +51,7 @@ export default function Login() {
   return (
     <form
       onSubmit={formik.handleSubmit}
-      className='max-w-sm flex flex-col gap-1 ml-auto mr-auto mt-6'
+      className='max-w-sm flex flex-col gap-1 ml-auto mr-auto mt-6 w-full'
     >
         <input
           onChange={formik.handleChange}
