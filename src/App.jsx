@@ -10,6 +10,7 @@ import SingleShopPage from './pages/SingleShopPage';
 import UserProfilePage from './pages/UserProfilePage';
 import Footer from './components/layout/Footer';
 import HomePage from './pages/HomePage';
+import Page404 from './pages/Page404';
 
 function App() {
   const ctx = useAuth();
@@ -48,15 +49,11 @@ function App() {
         />
         <Route
           path='/shops'
-          element={
-            ctx.isUserLoggedIn ? <ShopsPage /> : <Navigate to={'/login'} />
-          }
+          element={ctx.isUserLoggedIn ? <ShopsPage /> : <Page404 />}
         />
         <Route
           path='/add-shop'
-          element={
-            ctx.isUserLoggedIn ? <AddShopPage /> : <Navigate to={'/login'} />
-          }
+          element={ctx.isUserLoggedIn ? <AddShopPage /> : <Page404 />}
         />
         <Route
           path='/user-profile'
@@ -70,9 +67,7 @@ function App() {
         />
         <Route
           path='/:shopId'
-          element={
-            ctx.isUserLoggedIn ? <SingleShopPage /> : <Navigate to={'/login'} />
-          }
+          element={ctx.isUserLoggedIn ? <SingleShopPage /> : <Page404 />}
         />
         <Route
           path='*'
