@@ -9,6 +9,7 @@ import RegisterPage from './pages/RegisterPage';
 import SingleShopPage from './pages/SingleShopPage';
 import UserProfilePage from './pages/UserProfilePage';
 import Footer from './components/layout/Footer';
+import HomePage from './pages/HomePage';
 
 function App() {
   const ctx = useAuth();
@@ -27,6 +28,12 @@ function App() {
       />
       <Header />
       <Routes>
+        <Route
+          path='/'
+          element={
+            !ctx.isUserLoggedIn ? <HomePage /> : <Navigate to={'/shops'} />
+          }
+        />
         <Route
           path='/login'
           element={
