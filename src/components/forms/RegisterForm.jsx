@@ -52,7 +52,7 @@ export default function RegisterForm() {
   }
 
   return (
-    <div className='w-[95%] bg-gray-100 mb-16 md:w-[540px] py-8'>
+    <div className='w-[95%] bg-gray-100 mb-16 md:w-[540px] py-8 px-2'>
       <form
         onSubmit={formik.handleSubmit}
         className='max-w-sm flex flex-col gap-1 ml-auto mr-auto mt-6 w-full '
